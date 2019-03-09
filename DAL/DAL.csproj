@@ -44,5 +44,14 @@
     <Compile Include="Contexto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ENTIDADES\Entities.csproj">
+      <Project>{b2986d8a-7c33-4654-8cdd-9b9ab23cfb57}</Project>
+      <Name>Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Script\Script.sql" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
