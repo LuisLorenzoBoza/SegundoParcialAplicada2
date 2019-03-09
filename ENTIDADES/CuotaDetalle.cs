@@ -15,8 +15,9 @@ namespace ENTIDADES
         public int PrestamoId { get; set; }
         public decimal Interes { get; set; }
         public decimal Capital { get; set; }
-        public decimal Valor { get; set; }
-        public decimal Balance { get; set; }
+        public decimal ValorPrestamo { get; set; }
+        public decimal Balance { get; set};
+        // public int NoCuota { get; set; }
 
         public CuotaDetalle()
         {
@@ -24,18 +25,20 @@ namespace ENTIDADES
             PrestamoId = 0;
             Interes = 0;
             Capital = 0;
-            Valor = 0;
+            ValorPrestamo = 0;
             Balance = 0;
+            //NoCuota = 0;
         }
 
-        public CuotaDetalle(int cuotaId, int prestamoId, decimal interes, decimal capital, decimal valor, decimal balance)
+        public CuotaDetalle(int cuotaId, int prestamoId, decimal interes, decimal capital, decimal valor, decimal balance/*, int noCuota*/)
         {
             CuotaId = cuotaId;
             PrestamoId = prestamoId;
             Interes = interes;
             Capital = capital;
-            Valor = valor;
+            ValorPrestamo = valor;
             Balance = balance;
+            //NoCuota = noCuota;
         }
     }
 }
