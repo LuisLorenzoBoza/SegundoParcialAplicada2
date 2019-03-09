@@ -1,4 +1,3 @@
-﻿Use SegundoParcialDb
+﻿create database CuotasDb
 go
-select * from CuentaBancarias
-select * from Depositoes
+
