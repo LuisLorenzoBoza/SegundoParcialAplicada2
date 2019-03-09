@@ -1,5 +1,5 @@
 ﻿using BLL;
-using Entities;
+using ENTIDADES;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -141,7 +141,7 @@ namespace SegundoParcialAplicada2.Registros
 
                 AmTotal += Math.Round(Cuota - InteresMensual, 2);
                 Am = Cuota - InteresMensual;
-                Detalle1.PrestamoId = repositorioPrestamo.GetList(filtro).Count + 1;
+                Detalle1.PrestamoId = RepositorioPrestamo.GetList(filtro).Count + 1;
                 Detalle1.Valor = Math.Round((decimal)Cuota, 2);
                 Detalle1.Capital = Math.Round((decimal)Am, 2);
                 Detalle1.Interes = Math.Round((decimal)InteresMensual, 2);

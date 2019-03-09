@@ -64,9 +64,9 @@
       <Project>{BCA988EA-14F8-4BFA-B197-6273187DD044}</Project>
       <Name>DAL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ENTIDADES\Entities.csproj">
+    <ProjectReference Include="..\ENTIDADES\ENTIDADES.csproj">
       <Project>{B2986D8A-7C33-4654-8CDD-9B9AB23CFB57}</Project>
-      <Name>Entities</Name>
+      <Name>ENTIDADES</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

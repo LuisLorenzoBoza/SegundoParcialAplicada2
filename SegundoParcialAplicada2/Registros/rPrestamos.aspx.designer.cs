@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SegundoParcial {
+namespace SegundoParcialAplicada2.Registros {
     
     
-    public partial class WebForm4 {
+    public partial class rPrestamos {
         
         /// <summary>
         /// prestamoIdTextbox control.

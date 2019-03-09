@@ -1,3 +1,3 @@
-﻿create database CuotasDb
+﻿Use CuotasDb
 go
 

@@ -1,4 +1,5 @@
-﻿using Entities;
+﻿using DAL;
+using ENTIDADES;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -17,6 +18,7 @@ namespace BLL
 
         public override bool Guardar(Deposito entity)
         {
+            Contexto contexto = new Contexto();
             var cuenta = contexto.Cuentas.Find(entity.CuentaId);
             cuenta.Balance += entity.Monto;
             contexto.Entry(cuenta).State = EntityState.Modified;
@@ -27,6 +29,7 @@ namespace BLL
 
         public override bool Modificar(Deposito entity)
         {
+            Contexto contexto = new Contexto();
             var depositoAnterior = contexto.Depositos.Include(x => x.Cuenta).Where(z => z.DepositoId == entity.DepositoId).AsNoTracking().FirstOrDefault();
 
             CuentaBancaria cuenta = depositoAnterior.Cuenta;
@@ -40,6 +43,7 @@ namespace BLL
 
         public override bool Eliminar(int id)
         {
+            Contexto contexto = new Contexto();
             var deposito = Buscar(id);
             CuentaBancaria cuenta = deposito.Cuenta;
 

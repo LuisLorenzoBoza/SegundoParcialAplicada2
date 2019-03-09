@@ -73,12 +73,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Consultas\cCuentas.aspx" />
+    <Content Include="Consultas\cDepositos.aspx" />
+    <Content Include="Consultas\cPrestamos.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Registros\rCuentas.aspx" />
     <Content Include="Registros\rDepositos.aspx" />
@@ -92,6 +96,34 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Consultas\cCuentas.aspx.cs">
+      <DependentUpon>cCuentas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\cCuentas.aspx.designer.cs">
+      <DependentUpon>cCuentas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\cDepositos.aspx.cs">
+      <DependentUpon>cDepositos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\cDepositos.aspx.designer.cs">
+      <DependentUpon>cDepositos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\cPrestamos.aspx.cs">
+      <DependentUpon>cPrestamos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\cPrestamos.aspx.designer.cs">
+      <DependentUpon>cPrestamos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -148,7 +180,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Consultas\" />
     <Folder Include="Models\" />
     <Folder Include="Resources\" />
     <Folder Include="Utilitarios\" />
@@ -158,9 +189,13 @@
       <Project>{5F3F16CD-1D5C-4517-A868-4F24FF11045F}</Project>
       <Name>BLL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ENTIDADES\Entities.csproj">
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{bca988ea-14f8-4bfa-b197-6273187dd044}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ENTIDADES\ENTIDADES.csproj">
       <Project>{B2986D8A-7C33-4654-8CDD-9B9AB23CFB57}</Project>
-      <Name>Entities</Name>
+      <Name>ENTIDADES</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

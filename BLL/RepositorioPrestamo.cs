@@ -1,4 +1,5 @@
-﻿using Entities;
+﻿using DAL;
+using ENTIDADES;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -18,6 +19,7 @@ namespace BLL
 
         public override Prestamo Buscar(int id)
         {
+            Contexto contexto = new Contexto();
             Prestamo prestamo = contexto.Prestamos.Include(x => x.Detalle).Where(z => z.PrestamoId == id).FirstOrDefault();
 
             return prestamo;
@@ -25,6 +27,7 @@ namespace BLL
 
         public override bool Guardar(Prestamo entity)
         {
+            Contexto contexto = new Contexto();
             var cuenta = contexto.Cuentas.Find(entity.CuentaId);
             cuenta.Balance += entity.Capital;
             contexto.Entry(cuenta).State = EntityState.Modified;
@@ -35,6 +38,7 @@ namespace BLL
 
         public override bool Modificar(Prestamo entity)
         {
+            Contexto contexto = new Contexto();
             var prestamoAnterior = contexto.Prestamos.Include(x => x.Detalle).Where(z => z.PrestamoId == entity.PrestamoId).AsNoTracking().FirstOrDefault();
 
             var prestamo = prestamoAnterior;
@@ -57,6 +61,7 @@ namespace BLL
 
         public override bool Eliminar(int id)
         {
+            Contexto contexto = new Contexto();
             var prestamo = Buscar(id);
             CuentaBancaria cuenta = prestamo.Cuenta;
             cuenta.Balance -= prestamo.Capital;
@@ -65,8 +70,9 @@ namespace BLL
             return base.Eliminar(id);
         }
 
-        public override List<Prestamo> GetList(Expression<Func<Prestamo, bool>> expression)
+        public new static List<Prestamo> GetList(Expression<Func<Prestamo, bool>> expression)
         {
+            Contexto contexto = new Contexto();
             var lista = contexto.Prestamos.Include(x => x.Detalle).Where(expression).ToList();
 
             return lista;
