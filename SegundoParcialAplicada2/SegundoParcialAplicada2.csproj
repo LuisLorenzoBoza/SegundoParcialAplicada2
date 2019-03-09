@@ -81,6 +81,8 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Global.asax" />
     <Content Include="Registros\rCuentas.aspx" />
+    <Content Include="Registros\rDepositos.aspx" />
+    <Content Include="Registros\rPrestamos.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -100,6 +102,20 @@
     </Compile>
     <Compile Include="Registros\rCuentas.aspx.designer.cs">
       <DependentUpon>rCuentas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registros\rDepositos.aspx.cs">
+      <DependentUpon>rDepositos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registros\rDepositos.aspx.designer.cs">
+      <DependentUpon>rDepositos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registros\rPrestamos.aspx.cs">
+      <DependentUpon>rPrestamos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registros\rPrestamos.aspx.designer.cs">
+      <DependentUpon>rPrestamos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -136,6 +152,16 @@
     <Folder Include="Models\" />
     <Folder Include="Resources\" />
     <Folder Include="Utilitarios\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{5F3F16CD-1D5C-4517-A868-4F24FF11045F}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ENTIDADES\Entities.csproj">
+      <Project>{B2986D8A-7C33-4654-8CDD-9B9AB23CFB57}</Project>
+      <Name>Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
