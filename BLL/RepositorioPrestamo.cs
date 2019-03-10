@@ -12,7 +12,7 @@ namespace BLL
 {
     public class RepositorioPrestamo : RepositorioBase<Prestamo>
     {
-        
+
 
         public override Prestamo Buscar(int id)
         {
@@ -81,7 +81,7 @@ namespace BLL
             return retorno;
         }
 
-       
+
 
         public static List<CuentaBancaria> NCuentas(Expression<Func<CuentaBancaria, bool>> filtro)
         {
@@ -94,7 +94,7 @@ namespace BLL
             return list;
         }
 
-        
+
 
         public static List<Prestamo> NPrestamos(Expression<Func<Prestamo, bool>> filtro)
         {
@@ -108,4 +108,5 @@ namespace BLL
 
 
         }
+    }
 }

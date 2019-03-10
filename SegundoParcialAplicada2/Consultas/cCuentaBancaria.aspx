@@ -39,7 +39,6 @@
                     
                 </asp:GridView>
             </div>
-
         <div class="card-footer">
                 <div class="justify-content-start">
                     <div class="form-group" style="display: inline-block">
@@ -50,9 +49,10 @@
                     </div>
                 </div>
             </div>
+
+      </form >  
         
     </div>
-        </form>
-</div>
+
 </asp:Content>
 
