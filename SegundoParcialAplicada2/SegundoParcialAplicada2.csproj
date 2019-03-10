@@ -112,8 +112,6 @@
     <Content Include="Registros\rDepositos.aspx" />
     <Content Include="Registros\rPrestamos.aspx" />
     <Content Include="Reportes\ReportCuentaBancaria.aspx" />
-    <Content Include="Reportes\ReportDepositos.aspx" />
-    <Content Include="Reportes\ReportPrestamos.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -215,20 +213,6 @@
     </Compile>
     <Compile Include="Reportes\ReportCuentaBancaria.aspx.designer.cs">
       <DependentUpon>ReportCuentaBancaria.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Reportes\ReportDepositos.aspx.cs">
-      <DependentUpon>ReportDepositos.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Reportes\ReportDepositos.aspx.designer.cs">
-      <DependentUpon>ReportDepositos.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Reportes\ReportPrestamos.aspx.cs">
-      <DependentUpon>ReportPrestamos.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Reportes\ReportPrestamos.aspx.designer.cs">
-      <DependentUpon>ReportPrestamos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
