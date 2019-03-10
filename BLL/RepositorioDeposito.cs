@@ -37,6 +37,8 @@ namespace BLL
             return base.Modificar(entity);
         }
 
+        
+
         public override bool Eliminar(int id)
         {
             Contexto contexto = new Contexto();

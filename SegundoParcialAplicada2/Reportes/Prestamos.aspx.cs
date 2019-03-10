@@ -20,9 +20,9 @@ namespace SegundoParcialAplicada2.Reportes
             {
                 ElPrestamosReportViewer.ProcessingMode = ProcessingMode.Local;
                 ElPrestamosReportViewer.Reset();
-                ElPrestamosReportViewer.LocalReport.ReportPath = Server.MapPath(@"~\Reportes\ListDepositos.rdlc");
+                ElPrestamosReportViewer.LocalReport.ReportPath = Server.MapPath(@"~\Reportes\ListPrestamos.rdlc");
                 ElPrestamosReportViewer.LocalReport.DataSources.Clear();
-                ElPrestamosReportViewer.LocalReport.DataSources.Add(new ReportDataSource("CuentasDS", BLL.RepositorioDeposito.NDepositos(filtro)));
+                ElPrestamosReportViewer.LocalReport.DataSources.Add(new ReportDataSource("PrestamosDS", BLL.RepositorioPrestamo.NPrestamos(filtro)));
                 ElPrestamosReportViewer.LocalReport.Refresh();
             }
         }

@@ -22,7 +22,7 @@ namespace SegundoParcialAplicada2.Reportes
                 CuentaBancariaReportViewer.Reset();
                 CuentaBancariaReportViewer.LocalReport.ReportPath = Server.MapPath(@"~\Reportes\ListCuentaBancaria.rdlc");
                 CuentaBancariaReportViewer.LocalReport.DataSources.Clear();
-                CuentaBancariaReportViewer.LocalReport.DataSources.Add(new ReportDataSource("DepositosDS", BLL.RepositorioPrestamo.NPrestamos(filtro)));
+                CuentaBancariaReportViewer.LocalReport.DataSources.Add(new ReportDataSource("CuentasDS", BLL.RepositorioPrestamo.NCuentas(filtro)));
                 CuentaBancariaReportViewer.LocalReport.Refresh();
             }
         }

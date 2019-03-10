@@ -22,7 +22,7 @@ namespace SegundoParcialAplicada2.Reportes
                 ElDepositosReportViewer.Reset();
                 ElDepositosReportViewer.LocalReport.ReportPath = Server.MapPath(@"~\Reportes\ListDepositos.rdlc");
                 ElDepositosReportViewer.LocalReport.DataSources.Clear();
-                ElDepositosReportViewer.LocalReport.DataSources.Add(new ReportDataSource("CuentasDS", BLL.RepositorioDeposito.NDepositos(filtro)));
+                ElDepositosReportViewer.LocalReport.DataSources.Add(new ReportDataSource("DepositosDS", BLL.RepositorioDeposito.NDepositos(filtro)));
                 ElDepositosReportViewer.LocalReport.Refresh();
             }
         }
