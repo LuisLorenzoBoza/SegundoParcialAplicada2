@@ -12,10 +12,7 @@ namespace BLL
 {
     public class RepositorioPrestamo : RepositorioBase<Prestamo>
     {
-        public RepositorioPrestamo() : base()
-        {
-
-        }
+        
 
         public override Prestamo Buscar(int id)
         {
@@ -50,13 +47,18 @@ namespace BLL
                 contexto.Entry(item).State = EntityState.Deleted;
 
             foreach (var item in entity.Detalle)
-                contexto.Entry(item).State = (item.CuotaId == 0) ? EntityState.Added : EntityState.Modified;
+                contexto.Entry(item).State = (item.Id == 0) ? EntityState.Added : EntityState.Modified;
 
 
             cuenta.Balance += entity.Capital;
             contexto.Entry(cuenta).State = EntityState.Modified;
 
             return base.Modificar(entity);
+        }
+
+        public static object NPrestamos(Expression<Func<CuentaBancaria, bool>> filtro)
+        {
+            throw new NotImplementedException();
         }
 
         public override bool Eliminar(int id)
@@ -70,14 +72,40 @@ namespace BLL
             return base.Eliminar(id);
         }
 
-        public new static List<Prestamo> GetList(Expression<Func<Prestamo, bool>> expression)
-        {
-            Contexto contexto = new Contexto();
-            var lista = contexto.Deposito.Include(x => x.Detalle).Where(expression).ToList();
 
-            return lista;
+        public static int ToInt(string valor)
+        {
+            int retorno = 0;
+            int.TryParse(valor, out retorno);
+
+            return retorno;
+        }
+
+       
+
+        public static List<CuentaBancaria> NCuentas(Expression<Func<CuentaBancaria, bool>> filtro)
+        {
+            filtro = p => true;
+            RepositorioBase<CuentaBancaria> repositorio = new RepositorioBase<CuentaBancaria>();
+            List<CuentaBancaria> list = new List<CuentaBancaria>();
+
+            list = repositorio.GetList(filtro);
+
+            return list;
         }
 
         
-    }
+
+        public static List<Prestamo> NPrestamos(Expression<Func<Prestamo, bool>> filtro)
+        {
+            filtro = p => true;
+            RepositorioBase<Prestamo> repositorio = new RepositorioBase<Prestamo>();
+            List<Prestamo> list = new List<Prestamo>();
+
+            list = repositorio.GetList(filtro);
+
+            return list;
+
+
+        }
 }

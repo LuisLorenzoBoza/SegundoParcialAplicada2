@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="cCuentas.aspx.cs" Inherits="SegundoParcialAplicada2.Consultas.cCuentas" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="cCuentaBancaria.aspx.cs" Inherits="SegundoParcialAplicada2.Consultas.cCuentas" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -8,6 +8,7 @@
     <form runat="server">
             <div class="row" >
                 <div class="col-md-2">
+                    <asp:Label Text="Filtro" runat="server" />
                     <asp:DropDownList ID="BuscarPorDropDownList" runat="server" CssClass="form-control input-sm" >
                         <asp:ListItem>Todo</asp:ListItem>
                         <asp:ListItem>CuentaId</asp:ListItem>

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,11 +12,6 @@ namespace BLL
 {
     public class RepositorioDeposito : RepositorioBase<Deposito>
     {
-        public RepositorioDeposito() : base()
-        {
-
-        }
-
         public override bool Guardar(Deposito entity)
         {
             Contexto contexto = new Contexto();
@@ -52,6 +48,26 @@ namespace BLL
             contexto.SaveChanges();
 
             return base.Eliminar(id);
+        }
+
+
+        public static int ToInt(string valor)
+        {
+            int retorno = 0;
+            int.TryParse(valor, out retorno);
+
+            return retorno;
+        }
+
+        public static List<Deposito> NDepositos(Expression<Func<Deposito, bool>> filtro)
+        {
+            filtro = p => true;
+            RepositorioBase<Deposito> repositorio = new RepositorioBase<Deposito>();
+            List<Deposito> list = new List<Deposito>();
+
+            list = repositorio.GetList(filtro);
+
+            return list;
         }
     }
 }

@@ -14,7 +14,7 @@ namespace SegundoParcialAplicada2.Registros
     {
         RepositorioBase<CuentaBancaria> repositorioBase = new RepositorioBase<CuentaBancaria>();
         RepositorioPrestamo repositorioPrestamo = new RepositorioPrestamo();
-        List<CuotaDetalle> Detalle = new List<CuotaDetalle>();
+        List<CuotaMensual> Detalle = new List<CuotaMensual>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -40,7 +40,7 @@ namespace SegundoParcialAplicada2.Registros
             CuentaBancaria cuenta = repositorioBase.Buscar(Entidad.CuentaId);
             prestamoIdTextbox.Text = Entidad.PrestamoId.ToString();
             fechaTextbox.Text = Entidad.Fecha.ToString("yyyy-MM-dd");
-            cuentaIdTextbox.Text = cuenta.CuentaId.ToString();
+            cuentaIdTextbox.Text = cuenta.CuentaBancariaId.ToString();
             capitalTextbox.Text = Entidad.Capital.ToString();
             interesTextbox.Text = Entidad.Interes.ToString();
             tiempoTextbox.Text = Entidad.Tiempo.ToString();
@@ -135,7 +135,7 @@ namespace SegundoParcialAplicada2.Registros
 
             for (int i = 0; i < Tiempo; ++i)
             {
-                CuotaDetalle Detalle1 = new CuotaDetalle();
+                CuotaMensual Detalle1 = new CuotaMensual();
                 InteresMensual = Math.Round((Interes * Capital), 2);
                 Capital = Math.Round(Capital - Cuota + InteresMensual, 2);
 

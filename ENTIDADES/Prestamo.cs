@@ -18,7 +18,7 @@ namespace ENTIDADES
         public decimal Interes { get; set; }
         public int Tiempo { get; set; }
         public virtual CuentaBancaria Cuenta { get; set; }
-        public virtual List<CuotaDetalle> Detalle { get; set; }
+        public virtual List<CuotaMensual> Detalle { get; set; }
 
         public Prestamo()
         {
@@ -28,7 +28,7 @@ namespace ENTIDADES
             Capital = 0;
             Interes = 0;
             Tiempo = 0;
-            Detalle = new List<CuotaDetalle>();
+            Detalle = new List<CuotaMensual>();
         }
 
         public Prestamo(int prestamoId, DateTime fecha, int cuentaId, decimal capital, decimal interes, int tiempo)

@@ -11,9 +11,19 @@ namespace SegundoParcialAplicada2.Consultas
 {
     public partial class cCuentas : System.Web.UI.Page
     {
+        public static List<CuentaBancaria> list { get; set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private int ToInt(object valor)
+        {
+            int retorno = 0;
+            int.TryParse(valor.ToString(), out retorno);
+
+            return retorno;
         }
 
 
@@ -36,7 +46,7 @@ namespace SegundoParcialAplicada2.Consultas
                         break;
                     case 1://ID
                         id = Convert.ToInt32(FiltroTextBox.Text);
-                        filtro = c => c.CuentaId == id;
+                        filtro = c => c.CuentaBancariaId == id;
                         break;
                     case 2://Nombre
                         filtro = c => c.Nombre.Contains(FiltroTextBox.Text);
@@ -50,7 +60,7 @@ namespace SegundoParcialAplicada2.Consultas
 
         protected void ImprimirButton_Click(object sender, EventArgs e)
         {
-            Response.Write("<script>window.open('../../Reportes/ReportCuentaBancaria.aspx','_blanck');</script");
+            Response.Redirect("/Reportes/CuentaBancariaReportViewer.aspx");
         }
     }
 }

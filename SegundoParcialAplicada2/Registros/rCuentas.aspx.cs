@@ -27,7 +27,7 @@ namespace SegundoParcialAplicada2.Registros
 
         private void LlenaCampos(CuentaBancaria cuenta)
         {
-            cuentaIdTextbox.Text = cuenta.CuentaId.ToString();
+            cuentaIdTextbox.Text = cuenta.CuentaBancariaId.ToString();
             fechaTextbox.Text = cuenta.Fecha.ToString("yyyy-MM-dd");
             nombreTextbox.Text = cuenta.Nombre;
             balanceTextbox.Text = cuenta.Balance.ToString();
@@ -65,7 +65,7 @@ namespace SegundoParcialAplicada2.Registros
                     {
                         CuentaBancaria cuenta = repositorio.Buscar(int.Parse(cuentaIdTextbox.Text));
 
-                        cuenta.CuentaId = int.Parse(cuentaIdTextbox.Text);
+                        cuenta.CuentaBancariaId = int.Parse(cuentaIdTextbox.Text);
                         cuenta.Fecha = DateTime.Parse(fechaTextbox.Text);
                         cuenta.Nombre = nombreTextbox.Text;
                         cuenta.Balance = Decimal.Parse(balanceTextbox.Text);

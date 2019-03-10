@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,37 +9,41 @@ using System.Threading.Tasks;
 namespace ENTIDADES
 {
     [Serializable]
-    public class CuotaDetalle
+    public class CuotaMensual
     {
         [Key]
-        public int CuotaId { get; set; }
+        public int Id { get; set; }
         public int PrestamoId { get; set; }
         public decimal Interes { get; set; }
         public decimal Capital { get; set; }
         public decimal ValorPrestamo { get; set; }
         public decimal Balance { get; set; }
-        // public int NoCuota { get; set; }
 
-        public CuotaDetalle()
+
+        [ForeignKey("CuentaId")]
+        public virtual CuentaBancaria CuentaBancaria { get; set; }
+        
+
+        public CuotaMensual()
         {
-            CuotaId = 0;
+            Id = 0;
             PrestamoId = 0;
             Interes = 0;
             Capital = 0;
             ValorPrestamo = 0;
             Balance = 0;
-            //NoCuota = 0;
+           
         }
 
-        public CuotaDetalle(int cuotaId, int prestamoId, decimal interes, decimal capital, decimal valor, decimal balance/*, int noCuota*/)
+        public CuotaMensual(int id, int prestamoId, decimal interes, decimal capital, decimal valor, decimal balance)
         {
-            CuotaId = cuotaId;
+            Id = id;
             PrestamoId = prestamoId;
             Interes = interes;
             Capital = capital;
             ValorPrestamo = valor;
             Balance = balance;
-            //NoCuota = noCuota;
+            
         }
     }
 }

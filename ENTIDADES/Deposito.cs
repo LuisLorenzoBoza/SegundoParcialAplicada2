@@ -13,7 +13,10 @@ namespace ENTIDADES
         public int DepositoId { get; set; }
         public int CuentaId { get; set; }
         public DateTime Fecha { get; set; }
+
+        [StringLength(100)]
         public string Concepto { get; set; }
+
         public decimal Monto { get; set; }
         public virtual CuentaBancaria Cuenta { get; set; }
 
