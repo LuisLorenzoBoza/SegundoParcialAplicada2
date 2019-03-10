@@ -54,9 +54,9 @@
                         Consultas
                     </a>
                     <div class="dropdown-menu" aria-labelledby="menu-consultas">
-                        <a class="dropdown-item" href="/Consultas/cCuentas.aspx">Consultar Cuentas</a>
-                        <a class="dropdown-item"" href="/Consultas/cDepositos.aspx">Consultar Depositos</a>
-                        <a class="dropdown-item"" href="/Consultas/cPrestamos.aspx">Consultar Prestamos</a>
+                        <a class="dropdown-item" href="/Consultas/cCuentaBancaria.aspx">Consultar Cuentas</a>
+                        <a class="dropdown-item"" href="/Consultas/cDeposito.aspx">Consultar Depositos</a>
+                        <a class="dropdown-item"" href="/Consultas/cPrestamo.aspx">Consultar Prestamos</a>
                     </div>
                 </li>
             </ul>

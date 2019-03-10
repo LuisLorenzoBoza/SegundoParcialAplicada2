@@ -48,5 +48,10 @@ namespace SegundoParcialAplicada2.Consultas
                 DatosGridView.DataBind();
             }
         }
+
+        protected void ImprimirButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Reportes/DepositoReportViewer.aspx");
+        }
     }
 }
