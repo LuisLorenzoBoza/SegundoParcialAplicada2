@@ -12,7 +12,9 @@
 <body>
     <form id="form1" runat="server">
         <div>
+             <%--ScriptManager--%>
             <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+           <%--Viewer--%>
             <rsweb:ReportViewer ID="CuentasReportViewer" runat="server" ProcessingMode="Remote" Height="100%" Width="100%" >
                
             </rsweb:ReportViewer>

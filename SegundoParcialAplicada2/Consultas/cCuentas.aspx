@@ -39,8 +39,16 @@
                 </asp:GridView>
             </div>
 
-        <div class="form-row justify-content-center">
-        <asp:Button ID="ImprimirButton" CssClass="btn btn-outline-info mt-4" runat="server" Text="Print" OnClick="ImprimirButton_Click" />
+        <div class="card-footer">
+                <div class="justify-content-start">
+                    <div class="form-group" style="display: inline-block">
+                     <asp:Button ID="ImprimirButton" CssClass="btn btn-outline-info mt-4" runat="server" Text="Imprimir" OnClick="ImprimirButton_Click" />
+                        <span class="fas fa-print"></span>
+                            
+                        
+                    </div>
+                </div>
+            </div>
         
     </div>
         </form>
