@@ -1,5 +1,4 @@
 ﻿using ENTIDADES;
-using Entities;
 using Microsoft.Reporting.WebForms;
 using System;
 using System.Collections.Generic;
@@ -20,12 +19,12 @@ namespace SegundoParcialAplicada2.Reportes
         {
             if (!Page.IsPostBack)
             {
-                PrestamosReportViewer.ProcessingMode = ProcessingMode.Local;
-                PrestamosReportViewer.Reset();
-                PrestamosReportViewer.LocalReport.ReportPath = Server.MapPath(@"~\Reportes\ListPrestamos.rdlc");
-                PrestamosReportViewer.LocalReport.DataSources.Clear();
-                PrestamosReportViewer.LocalReport.DataSources.Add(new ReportDataSource("DataSetPrestamos", BLL.RepositorioPrestamo.GetList(filtro)));
-                PrestamosReportViewer.LocalReport.Refresh();
+                ElPrestamosReportViewer.ProcessingMode = ProcessingMode.Local;
+                ElPrestamosReportViewer.Reset();
+                ElPrestamosReportViewer.LocalReport.ReportPath = Server.MapPath(@"~\Reportes\ListPrestamos.rdlc");
+                ElPrestamosReportViewer.LocalReport.DataSources.Clear();
+                ElPrestamosReportViewer.LocalReport.DataSources.Add(new ReportDataSource("DataSetPrestamos", BLL.RepositorioPrestamo.GetList(filtro)));
+                ElPrestamosReportViewer.LocalReport.Refresh();
             }
         }
     }

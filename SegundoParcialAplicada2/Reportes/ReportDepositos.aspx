@@ -11,8 +11,8 @@
 <body>
     <form id="form1" runat="server">
         <div>
-             <%--ScriptManager--%>
-            <asp:ScriptManager  runat="server"></asp:ScriptManager>
+            <%--ScriptManager--%>
+            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 
 
            <%--Viewer--%>

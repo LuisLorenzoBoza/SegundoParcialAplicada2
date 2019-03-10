@@ -11,11 +11,11 @@
 <body>
     <form id="form1" runat="server">
         <div>
-             <%--ScriptManager--%>
+            <%--ScriptManager--%>
             <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 
            <%--Viewer--%>
-            <rsweb:ReportViewer ID="ListPrestamosReportViewer" runat="server" ProcessingMode="Remote" Height="100%" Width="100%" >
+            <rsweb:ReportViewer ID="ElPrestamosReportViewer" runat="server" ProcessingMode="Remote" Height="100%" Width="100%" >
                <ServerReport ReportPath="" ReportServerUrl="" />   
             </rsweb:ReportViewer>
 

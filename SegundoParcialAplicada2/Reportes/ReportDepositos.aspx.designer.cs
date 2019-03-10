@@ -20,14 +20,14 @@ namespace SegundoParcialAplicada2.Reportes {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-
+        
         /// <summary>
-        /// CuentaBancariaReportViewer control.
+        /// ScriptManager1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Microsoft.Reporting.WebForms.ReportViewer DepositosReportViewer;
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
     }
 }

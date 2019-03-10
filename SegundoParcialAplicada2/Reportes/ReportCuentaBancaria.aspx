@@ -14,6 +14,8 @@
         <div>
              <%--ScriptManager--%>
             <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+
+
            <%--Viewer--%>
             <rsweb:ReportViewer ID="CuentaBancariaReportViewer" runat="server" ProcessingMode="Remote" Height="100%" Width="100%" >
                
