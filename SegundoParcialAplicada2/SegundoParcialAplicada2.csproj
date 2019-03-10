@@ -111,6 +111,7 @@
     <Content Include="Registros\rCuentas.aspx" />
     <Content Include="Registros\rDepositos.aspx" />
     <Content Include="Registros\rPrestamos.aspx" />
+    <Content Include="Reportes\ReportCuentaBancaria.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -154,11 +155,6 @@
     <Compile Include="Consultas\cPrestamos.aspx.designer.cs">
       <DependentUpon>cPrestamos.aspx</DependentUpon>
     </Compile>
-    <Compile Include="CuotasDbDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CuotasDbDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -196,6 +192,13 @@
     <Compile Include="Registros\rPrestamos.aspx.designer.cs">
       <DependentUpon>rPrestamos.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\ReportCuentaBancaria.aspx.cs">
+      <DependentUpon>ReportCuentaBancaria.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reportes\ReportCuentaBancaria.aspx.designer.cs">
+      <DependentUpon>ReportCuentaBancaria.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SegundoParcialAplicada2DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -218,17 +221,6 @@
     <Content Include="Content\bootstrap-reboot.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="CuotasDbDataSet.xsc">
-      <DependentUpon>CuotasDbDataSet.xsd</DependentUpon>
-    </Content>
-    <None Include="CuotasDbDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>CuotasDbDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <Content Include="CuotasDbDataSet.xss">
-      <DependentUpon>CuotasDbDataSet.xsd</DependentUpon>
-    </Content>
     <None Include="packages.config" />
     <Content Include="Site.Master" />
     <Content Include="Scripts\bootstrap.bundle.js.map" />
