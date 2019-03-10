@@ -20,7 +20,7 @@ namespace BLL
         public override Prestamo Buscar(int id)
         {
             Contexto contexto = new Contexto();
-            Prestamo prestamo = contexto.Prestamos.Include(x => x.Detalle).Where(z => z.PrestamoId == id).FirstOrDefault();
+            Prestamo prestamo = contexto.Deposito.Include(x => x.Detalle).Where(z => z.PrestamoId == id).FirstOrDefault();
 
             return prestamo;
         }
@@ -39,7 +39,7 @@ namespace BLL
         public override bool Modificar(Prestamo entity)
         {
             Contexto contexto = new Contexto();
-            var prestamoAnterior = contexto.Prestamos.Include(x => x.Detalle).Where(z => z.PrestamoId == entity.PrestamoId).AsNoTracking().FirstOrDefault();
+            var prestamoAnterior = contexto.Deposito.Include(x => x.Detalle).Where(z => z.PrestamoId == entity.PrestamoId).AsNoTracking().FirstOrDefault();
 
             var prestamo = prestamoAnterior;
             var cuenta = contexto.Cuentas.Find(entity.CuentaId);
@@ -73,9 +73,11 @@ namespace BLL
         public new static List<Prestamo> GetList(Expression<Func<Prestamo, bool>> expression)
         {
             Contexto contexto = new Contexto();
-            var lista = contexto.Prestamos.Include(x => x.Detalle).Where(expression).ToList();
+            var lista = contexto.Deposito.Include(x => x.Detalle).Where(expression).ToList();
 
             return lista;
         }
+
+        
     }
 }

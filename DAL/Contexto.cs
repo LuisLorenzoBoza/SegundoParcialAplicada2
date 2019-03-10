@@ -14,7 +14,7 @@ namespace DAL
 
         public DbSet<Deposito> Depositos { get; set; }
 
-        public DbSet<Prestamo> Prestamos { get; set; }
+        public DbSet<Prestamo> Deposito { get; set; }
 
         public DbSet<CuotaDetalle> Detalle { get; set; }
 

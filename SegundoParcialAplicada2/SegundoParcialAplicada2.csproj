@@ -112,6 +112,8 @@
     <Content Include="Registros\rDepositos.aspx" />
     <Content Include="Registros\rPrestamos.aspx" />
     <Content Include="Reportes\ReportCuentaBancaria.aspx" />
+    <Content Include="Reportes\ReportDepositos.aspx" />
+    <Content Include="Reportes\ReportPrestamos.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -214,10 +216,19 @@
     <Compile Include="Reportes\ReportCuentaBancaria.aspx.designer.cs">
       <DependentUpon>ReportCuentaBancaria.aspx</DependentUpon>
     </Compile>
-    <Compile Include="PrestamosDbDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PrestamosDbDataSet.xsd</DependentUpon>
+    <Compile Include="Reportes\ReportDepositos.aspx.cs">
+      <DependentUpon>ReportDepositos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reportes\ReportDepositos.aspx.designer.cs">
+      <DependentUpon>ReportDepositos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\ReportPrestamos.aspx.cs">
+      <DependentUpon>ReportPrestamos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reportes\ReportPrestamos.aspx.designer.cs">
+      <DependentUpon>ReportPrestamos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -264,9 +275,6 @@
     <Content Include="Scripts\bootstrap.bundle.min.js.map" />
     <Content Include="Scripts\bootstrap.js.map" />
     <Content Include="Scripts\bootstrap.min.js.map" />
-    <Content Include="PrestamosDbDataSet.xsc">
-      <DependentUpon>PrestamosDbDataSet.xsd</DependentUpon>
-    </Content>
     <Content Include="PrestamosDbDataSet1.xsc">
       <DependentUpon>PrestamosDbDataSet1.xsd</DependentUpon>
     </Content>
@@ -282,14 +290,6 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="PrestamosDbDataSet.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>PrestamosDbDataSet.Designer.cs</LastGenOutput>
-    </None>
-    <Content Include="PrestamosDbDataSet.xss">
-      <DependentUpon>PrestamosDbDataSet.xsd</DependentUpon>
-    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -318,9 +318,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Reportes\ReportCuentaBancaria.rdlc" />
-    <EmbeddedResource Include="Reportes\ReportDepositos.rdlc" />
-    <EmbeddedResource Include="Reportes\ReportPrestamos.rdlc" />
+    <EmbeddedResource Include="Reportes\ListCuentaBancaria.rdlc" />
+    <EmbeddedResource Include="Reportes\ListDepositos.rdlc" />
+    <EmbeddedResource Include="Reportes\ListPrestamos.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
