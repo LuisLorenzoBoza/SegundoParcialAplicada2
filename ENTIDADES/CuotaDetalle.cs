@@ -16,7 +16,7 @@ namespace ENTIDADES
         public decimal Interes { get; set; }
         public decimal Capital { get; set; }
         public decimal ValorPrestamo { get; set; }
-        public decimal Balance { get; set};
+        public decimal Balance { get; set; }
         // public int NoCuota { get; set; }
 
         public CuotaDetalle()

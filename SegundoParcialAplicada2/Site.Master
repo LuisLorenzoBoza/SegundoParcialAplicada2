@@ -40,9 +40,12 @@
                         Registros
                     </a>
                     <div class="dropdown-menu" aria-labelledby="menu-registros">
-                        <a href="rCuentas.aspx" class="dropdown-item">Registrar Cuenta</a>
-                        <a href="rDepositos.aspx" class="dropdown-item">Registrar Deposito</a>
-                        <a href="rPrestamos.aspx" class="dropdown-item">Registrar Prestamo</a>
+                        <a class="dropdown-item" href="/Registros/rCuentas.aspx">Registrar Cuenta</a>
+                        <a class="dropdown-item" href="/Registros/rDepositos.aspx">Registrar Deposito</a>
+                        <a class="dropdown-item" href="/Registros/rPrestamos.aspx">Registrar Prestamo</a>
+                       
+                        
+                        
                     </div>
                 </li>
 
@@ -51,9 +54,9 @@
                         Consultas
                     </a>
                     <div class="dropdown-menu" aria-labelledby="menu-consultas">
-                        <a href="cCuentas.aspx" class="dropdown-item">Consultar Cuentas</a>
-                        <a href="cDepositos.aspx" class="dropdown-item">Consultar Depositos</a>
-                        <a href="cPrestamos.aspx" class="dropdown-item">Consultar Prestamos</a>
+                        <a class="dropdown-item" href="Consultas/cCuentas.aspx">Consultar Cuentas</a>
+                        <a class="dropdown-item"" href="Consultas/cDepositos.aspx">Consultar Depositos</a>
+                        <a class="dropdown-item"" href="Consultas/cPrestamos.aspx">Consultar Prestamos</a>
                     </div>
                 </li>
             </ul>
