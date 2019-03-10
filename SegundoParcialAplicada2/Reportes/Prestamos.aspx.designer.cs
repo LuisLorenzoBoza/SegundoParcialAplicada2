@@ -10,7 +10,7 @@
 namespace SegundoParcialAplicada2.Reportes {
     
     
-    public partial class Prestamos {
+    public partial class ReportPrestamos {
         
         /// <summary>
         /// form1 control.
@@ -31,12 +31,12 @@ namespace SegundoParcialAplicada2.Reportes {
         protected global::System.Web.UI.ScriptManager ScriptManager;
         
         /// <summary>
-        /// ElDepositosReportViewer control.
+        /// ElPrestamosReportViewer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Microsoft.Reporting.WebForms.ReportViewer ElDepositosReportViewer;
+        protected global::Microsoft.Reporting.WebForms.ReportViewer ElPrestamosReportViewer;
     }
 }

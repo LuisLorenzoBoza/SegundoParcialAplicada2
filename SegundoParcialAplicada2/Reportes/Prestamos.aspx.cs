@@ -10,9 +10,9 @@ using System.Web.UI.WebControls;
 
 namespace SegundoParcialAplicada2.Reportes
 {
-    public partial class Prestamos : System.Web.UI.Page
+    public partial class ReportPrestamos : System.Web.UI.Page
     {
-        Expression<Func<Deposito, bool>> filtro = p => true;
+        Expression<Func<Prestamo, bool>> filtro = p => true;
 
         protected void Page_Load(object sender, EventArgs e)
         {
