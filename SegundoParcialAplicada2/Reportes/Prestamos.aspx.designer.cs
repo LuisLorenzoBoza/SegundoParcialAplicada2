@@ -31,12 +31,12 @@ namespace SegundoParcialAplicada2.Reportes {
         protected global::System.Web.UI.ScriptManager ScriptManager;
         
         /// <summary>
-        /// ElPrestamosReportViewer control.
+        /// ElDepositosReportViewer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Microsoft.Reporting.WebForms.ReportViewer ElPrestamosReportViewer;
+        protected global::Microsoft.Reporting.WebForms.ReportViewer ElDepositosReportViewer;
     }
 }

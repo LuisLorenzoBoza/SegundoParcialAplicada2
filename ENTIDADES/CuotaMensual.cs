@@ -13,37 +13,40 @@ namespace ENTIDADES
     {
         [Key]
         public int Id { get; set; }
+        public DateTime Fecha { get; set; }
         public int PrestamoId { get; set; }
-        public decimal Interes { get; set; }
-        public decimal Capital { get; set; }
-        public decimal ValorPrestamo { get; set; }
-        public decimal Balance { get; set; }
-
+        public int NumeroCuota { get; set; }
+        public int CuentaId { get; set; }
+        public double Interes { get; set; }
+        public double CapitalMensual { get; set; }
+        public double Balance { get; set; }
 
         [ForeignKey("CuentaId")]
         public virtual CuentaBancaria CuentaBancaria { get; set; }
-        
+
 
         public CuotaMensual()
         {
             Id = 0;
+            Fecha = DateTime.Now;
             PrestamoId = 0;
+            NumeroCuota = 0;
+            CuentaId = 0;
             Interes = 0;
-            Capital = 0;
-            ValorPrestamo = 0;
+            CapitalMensual = 0;
             Balance = 0;
-           
         }
 
-        public CuotaMensual(int id, int prestamoId, decimal interes, decimal capital, decimal valor, decimal balance)
+        public CuotaMensual(int id, DateTime fecha, int prestamoId, int numeroCuota, int cuentaId, double interes, double capitalMensual, double balance)
         {
             Id = id;
+            Fecha = fecha;
             PrestamoId = prestamoId;
+            NumeroCuota = numeroCuota;
+            CuentaId = cuentaId;
             Interes = interes;
-            Capital = capital;
-            ValorPrestamo = valor;
+            CapitalMensual = capitalMensual;
             Balance = balance;
-            
         }
     }
 }
