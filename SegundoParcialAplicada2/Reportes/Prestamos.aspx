@@ -16,7 +16,7 @@
 
 
            <%--Viewer--%>
-            <rsweb:ReportViewer ID="ElDepositosReportViewer" runat="server" ProcessingMode="Remote" Height="100%" Width="100%" >
+            <rsweb:ReportViewer ID="ElPrestamosReportViewer" runat="server" ProcessingMode="Remote" Height="100%" Width="100%" >
                
             </rsweb:ReportViewer>
         </div>

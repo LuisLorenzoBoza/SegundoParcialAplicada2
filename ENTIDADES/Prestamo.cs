@@ -20,17 +20,29 @@ namespace ENTIDADES
         public int Total { get; set; }
 
         public virtual CuentaBancaria Cuenta { get; set; }
-        public virtual List<CuotaMensual> Detalle { get; set; }
+
+        public virtual List<CuotaDetalle> Detalle { get; set; }
 
 
         public Prestamo()
         {
-            this.Detalle = new List<CuotaMensual>();
+            PrestamoId = 0;
+            Fecha = DateTime.Now;
+            CuentaId = 0;
+            Capital = 0;
+            Interes = 0;
+            Tiempo = 0;
+            Detalle = new List<CuotaDetalle>();
         }
 
-        public void AgregarDetalle(int Id, DateTime Fecha, int PrestamoId, int NumeroCuota, int CuentaId, double Interes, double Capital, double Balance)
+        public Prestamo(int prestamoId, DateTime fecha, int cuentaId, decimal capital, decimal interes, int tiempo)
         {
-            this.Detalle.Add(new CuotaMensual(Id, Fecha, PrestamoId, NumeroCuota, CuentaId, Interes, Capital, Balance));
+            PrestamoId = prestamoId;
+            Fecha = fecha;
+            CuentaId = cuentaId;
+            Capital = capital;
+            Interes = interes;
+            Tiempo = tiempo;
         }
     }
 }

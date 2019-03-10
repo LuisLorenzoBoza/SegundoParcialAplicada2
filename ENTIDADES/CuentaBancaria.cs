@@ -24,7 +24,7 @@ namespace ENTIDADES
             Balance = 0;
         }
 
-        public void AgregarDetalle(int cuentaBancariaId, DateTime fecha, string nombre, int balance)
+        public void AgregarDetalle(int cuentaBancariaId, DateTime fecha, string nombre, decimal balance)
         {
             CuentaBancariaId = cuentaBancariaId;
             Fecha = fecha;

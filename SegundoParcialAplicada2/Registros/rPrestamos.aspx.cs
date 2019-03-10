@@ -14,7 +14,7 @@ namespace SegundoParcialAplicada2.Registros
     {
         RepositorioBase<CuentaBancaria> repositorioBase = new RepositorioBase<CuentaBancaria>();
         RepositorioPrestamo repositorioPrestamo = new RepositorioPrestamo();
-        List<CuotaMensual> Detalle = new List<CuotaMensual>();
+        List<CuotaDetalle> Detalle = new List<CuotaDetalle>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -135,14 +135,14 @@ namespace SegundoParcialAplicada2.Registros
 
             for (int i = 0; i < Tiempo; ++i)
             {
-                CuotaMensual Detalle1 = new CuotaMensual();
+                CuotaDetalle Detalle1 = new CuotaDetalle();
                 InteresMensual = Math.Round((Interes * Capital), 2);
                 Capital = Math.Round(Capital - Cuota + InteresMensual, 2);
 
                 AmTotal += Math.Round(Cuota - InteresMensual, 2);
                 Am = Cuota - InteresMensual;
                 Detalle1.PrestamoId = repositorioPrestamo.GetList(filtro).Count + 1;
-                Detalle1.ValorPrestamo = Math.Round((decimal)Cuota, 2);
+                Detalle1.Valor = Math.Round((decimal)Cuota, 2);
                 Detalle1.Capital = Math.Round((decimal)Am, 2);
                 Detalle1.Interes = Math.Round((decimal)InteresMensual, 2);
                 if (i == Tiempo - 1)
