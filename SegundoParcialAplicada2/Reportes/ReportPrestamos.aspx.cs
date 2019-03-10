@@ -14,6 +14,7 @@ namespace SegundoParcialAplicada2.Reportes
     public partial class ReportPrestamos : System.Web.UI.Page
     {
         Expression<Func<Prestamo, bool>> filtro = p => true;
+        private object PrestamosReportViewer;
 
         protected void Page_Load(object sender, EventArgs e)
         {
