@@ -22,24 +22,27 @@
                 </div>
             </div>
             <br />
-            <%--GRID--%>
-            <div class="col-md-12">
-                <asp:GridView ID="DatosGridView"
-                    runat="server"
-                    class="table table-condensed table-bordered table-responsive"
-                    CellPadding="4" ForeColor="#333333" GridLines="None">
 
-                    <AlternatingRowStyle BackColor="White" />
+
+            <%--GRID--%>
+            <div class="form-row justify-content-center">
+        <asp:GridView ID="DatosGridView" runat="server" class="table table-condensed table-bordered table-responsive" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None">
+            <AlternatingRowStyle BackColor="SkyBlue" />
                     <Columns>
-                        <asp:HyperLinkField ControlStyle-ForeColor="Black"
-                            DataNavigateUrlFields="CuentaId"
-                            DataNavigateUrlFormatString="rCuentas.aspx?Id={0}">
-                        </asp:HyperLinkField>
+                        <asp:BoundField DataField="CuentaId" HeaderText="Cuenta Id" />
+                        <asp:BoundField DataField="Fecha" HeaderText="Fecha" />
+                        <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
+                        <asp:BoundField DataField="Balance" HeaderText="Balance" />
+                        
                     </Columns>
-                    <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                    <RowStyle BackColor="#EFF3FB" />
+                    
                 </asp:GridView>
             </div>
+
+        <div class="form-row justify-content-center">
+        <asp:Button ID="ImprimirButton" CssClass="btn btn-outline-info mt-4" runat="server" Text="Print" OnClick="ImprimirButton_Click" />
+        
+    </div>
         </form>
 </div>
 </asp:Content>
