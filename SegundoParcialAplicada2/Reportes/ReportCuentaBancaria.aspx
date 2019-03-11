@@ -1,7 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ReportCuentaBancaria.aspx.cs" Inherits="SegundoParcialAplicada2.Reportes.ReportCuentaBancaria" %>
 
-<%@ Register Assembly="Microsoft.ReportViewer.WebForms" Namespace="Microsoft.Reporting.WebForms" TagPrefix="rsweb" %>
-
+<%@ Register assembly="Microsoft.ReportViewer.WebForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" namespace="Microsoft.Reporting.WebForms" tagprefix="rsweb" %>
 
 <!DOCTYPE html>
 
@@ -12,15 +11,14 @@
 <body>
     <form id="form1" runat="server">
         <div>
-             <%--ScriptManager--%>
-            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 
-
-           <%--Viewer--%>
-            <rsweb:ReportViewer ID="CuentaBancariaReportViewer" runat="server" ProcessingMode="Remote" Height="100%" Width="100%" >
-               
+            <%--ScriptManager--%>
+            <asp:ScriptManager runat="server"></asp:ScriptManager> 
+            
+            <%--Viewer--%>
+            <rsweb:ReportViewer ID="CuentaBancariaReportViewer" runat="server" ProcessingMode="Remote" Height="650px" Width="950px">
+                <ServerReport ReportPath="" ReportServerUrl="" />
             </rsweb:ReportViewer>
-
         </div>
     </form>
 </body>

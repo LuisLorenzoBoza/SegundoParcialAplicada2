@@ -59,7 +59,7 @@ namespace SegundoParcialAplicada2.Consultas
 
         protected void ImprimirButton_Click(object sender, EventArgs e)
         {
-            Response.Redirect("/Reportes/CuentaBancariaReportViewer.aspx");
+            Response.Redirect("/Reportes/ReportCuentaBancaria.aspx");
         }
     }
 }

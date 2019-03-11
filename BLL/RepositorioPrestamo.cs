@@ -17,7 +17,7 @@ namespace BLL
         public override Prestamo Buscar(int id)
         {
             Contexto contexto = new Contexto();
-            Prestamo prestamo = contexto.Deposito.Include(x => x.Detalle).Where(z => z.PrestamoId == id).FirstOrDefault();
+            Prestamo prestamo = contexto.Prestamos.Include(x => x.Detalle).Where(z => z.PrestamoId == id).FirstOrDefault();
 
             return prestamo;
         }
@@ -25,7 +25,7 @@ namespace BLL
         public override bool Guardar(Prestamo entity)
         {
             Contexto contexto = new Contexto();
-            var cuenta = contexto.Cuentas.Find(entity.CuentaId);
+            var cuenta = contexto.Cuentas.Find(entity.CuentaBancariaId);
             cuenta.Balance += entity.Capital;
             contexto.Entry(cuenta).State = EntityState.Modified;
             contexto.SaveChanges();
@@ -36,10 +36,10 @@ namespace BLL
         public override bool Modificar(Prestamo entity)
         {
             Contexto contexto = new Contexto();
-            var prestamoAnterior = contexto.Deposito.Include(x => x.Detalle).Where(z => z.PrestamoId == entity.PrestamoId).AsNoTracking().FirstOrDefault();
+            var prestamoAnterior = contexto.Prestamos.Include(x => x.Detalle).Where(z => z.PrestamoId == entity.PrestamoId).AsNoTracking().FirstOrDefault();
 
             var prestamo = prestamoAnterior;
-            var cuenta = contexto.Cuentas.Find(entity.CuentaId);
+            var cuenta = contexto.Cuentas.Find(entity.CuentaBancariaId);
             cuenta.Balance -= prestamoAnterior.Capital;
             contexto.Entry(cuenta).State = EntityState.Modified;
 
@@ -64,10 +64,9 @@ namespace BLL
         public override bool Eliminar(int id)
         {
             Contexto contexto = new Contexto();
-            var prestamo = Buscar(id);
-            CuentaBancaria cuenta = prestamo.Cuenta;
-            cuenta.Balance -= prestamo.Capital;
-            contexto.Entry(cuenta).State = EntityState.Modified;
+            Prestamo prestamo = contexto.Prestamos.Find(id);
+            contexto.Cuentas.Find(prestamo.CuentaBancariaId).Balance -= prestamo.Total;
+            contexto.Prestamos.Remove(prestamo);
 
             return base.Eliminar(id);
         }

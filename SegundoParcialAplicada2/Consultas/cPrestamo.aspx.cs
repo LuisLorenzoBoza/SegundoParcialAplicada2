@@ -32,18 +32,17 @@ namespace SegundoParcialAplicada2.Consultas
                 switch (BuscarPorDropDownList.SelectedIndex)
                 {
                     case 0:
-                        filtro = c => true;
                         break;
-                    case 1://ID
+                    case 1://PrestamoId
                         id = Convert.ToInt32(FiltroTextBox.Text);
                         filtro = c => c.PrestamoId == id;
                         break;
-                    case 2://Nombre
+                    case 2://CuentaBancariaId
                         id = Convert.ToInt32(FiltroTextBox.Text);
-                        filtro = c => c.CuentaId == id;
+                        filtro = c => c.CuentaBancariaId == id;
                         break;
                 }
-
+                
                 PrestamoGridView.DataSource = repositorio.GetList(filtro);
                 PrestamoGridView.DataBind();
             }

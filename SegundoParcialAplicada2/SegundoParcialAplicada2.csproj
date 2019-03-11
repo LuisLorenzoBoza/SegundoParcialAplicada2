@@ -157,10 +157,10 @@
     <Compile Include="Consultas\cPrestamo.aspx.designer.cs">
       <DependentUpon>cPrestamo.aspx</DependentUpon>
     </Compile>
-    <Compile Include="CuentasDbDataSet.Designer.cs">
+    <Compile Include="CuentasDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CuentasDbDataSet.xsd</DependentUpon>
+      <DependentUpon>CuentasDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -248,19 +248,19 @@
     <Content Include="Content\bootstrap-reboot.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="CuentasDbDataSet.xsc">
-      <DependentUpon>CuentasDbDataSet.xsd</DependentUpon>
-    </Content>
-    <None Include="CuentasDbDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>CuentasDbDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <Content Include="CuentasDbDataSet.xss">
-      <DependentUpon>CuentasDbDataSet.xsd</DependentUpon>
-    </Content>
     <Content Include="DepositosDbDataSet.xsc">
       <DependentUpon>DepositosDbDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="CuentasDataSet.xsc">
+      <DependentUpon>CuentasDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="CuentasDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CuentasDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="CuentasDataSet.xss">
+      <DependentUpon>CuentasDataSet.xsd</DependentUpon>
     </Content>
     <None Include="DepositosDbDataSet.xsd">
       <SubType>Designer</SubType>
@@ -318,9 +318,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Reportes\ListCuentaBancaria.rdlc" />
-    <EmbeddedResource Include="Reportes\ListDepositos.rdlc" />
-    <EmbeddedResource Include="Reportes\ListPrestamos.rdlc" />
+    <EmbeddedResource Include="Reportes\ListadoCuentasBancarias.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

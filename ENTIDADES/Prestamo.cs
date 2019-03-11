@@ -13,14 +13,12 @@ namespace ENTIDADES
         [Key]
         public int PrestamoId { get; set; }
         public DateTime Fecha { get; set; }
-        public int CuentaId { get; set; }
+        public int CuentaBancariaId { get; set; }
         public decimal Capital { get; set; }
         public decimal Interes { get; set; }
         public int Tiempo { get; set; }
         public int Total { get; set; }
-
-        public virtual CuentaBancaria Cuenta { get; set; }
-
+        
         public virtual List<CuotaDetalle> Detalle { get; set; }
 
 
@@ -28,7 +26,7 @@ namespace ENTIDADES
         {
             PrestamoId = 0;
             Fecha = DateTime.Now;
-            CuentaId = 0;
+            CuentaBancariaId = 0;
             Capital = 0;
             Interes = 0;
             Tiempo = 0;
@@ -39,7 +37,7 @@ namespace ENTIDADES
         {
             PrestamoId = prestamoId;
             Fecha = fecha;
-            CuentaId = cuentaId;
+            CuentaBancariaId = cuentaId;
             Capital = capital;
             Interes = interes;
             Tiempo = tiempo;

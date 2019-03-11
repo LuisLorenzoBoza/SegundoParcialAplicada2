@@ -26,7 +26,7 @@ namespace SegundoParcialAplicada2.Registros
         {
             var Entidad = new Prestamo();
 
-            Entidad.CuentaId = int.Parse(cuentaIdTextbox.Text);
+            Entidad.CuentaBancariaId = int.Parse(cuentaBancariaIdTextbox.Text);
             Entidad.Capital = decimal.Parse(capitalTextbox.Text);
             Entidad.Interes = decimal.Parse(interesTextbox.Text);
             Entidad.Tiempo = int.Parse(tiempoTextbox.Text);
@@ -37,10 +37,10 @@ namespace SegundoParcialAplicada2.Registros
 
         private void LlenaCampos(Prestamo Entidad)
         {
-            CuentaBancaria cuenta = repositorioBase.Buscar(Entidad.CuentaId);
+            CuentaBancaria cuenta = repositorioBase.Buscar(Entidad.CuentaBancariaId);
             prestamoIdTextbox.Text = Entidad.PrestamoId.ToString();
             fechaTextbox.Text = Entidad.Fecha.ToString("yyyy-MM-dd");
-            cuentaIdTextbox.Text = cuenta.CuentaBancariaId.ToString();
+            cuentaBancariaIdTextbox.Text = cuenta.CuentaBancariaId.ToString();
             capitalTextbox.Text = Entidad.Capital.ToString();
             interesTextbox.Text = Entidad.Interes.ToString();
             tiempoTextbox.Text = Entidad.Tiempo.ToString();
@@ -53,7 +53,7 @@ namespace SegundoParcialAplicada2.Registros
         {
             prestamoIdTextbox.Text = "0";
             fechaTextbox.Text = DateTime.Today.ToString();
-            cuentaIdTextbox.Text = "1";
+            cuentaBancariaIdTextbox.Text = "1";
             capitalTextbox.Text = "0";
             interesTextbox.Text = "0";
             tiempoTextbox.Text = "1";
