@@ -14,10 +14,9 @@
              <%--ScriptManager--%>
             <asp:ScriptManager ID="ScriptManager" runat="server"></asp:ScriptManager>
 
-
-           <%--Viewer--%>
-            <rsweb:ReportViewer ID="ElDepositosReportViewer" runat="server" ProcessingMode="Remote" Height="100%" Width="100%" >
-               
+            <%--Viewer--%>
+            <rsweb:ReportViewer ID="DepositoReportViewer" runat="server" ProcessingMode="Remote" Height="650px" Width="950px">
+                <ServerReport ReportPath="" ReportServerUrl="" />
             </rsweb:ReportViewer>
         </div>
     </form>

@@ -20,17 +20,17 @@ namespace SegundoParcialAplicada2 {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("PrestamosDbDataSet")]
+    [global::System.Xml.Serialization.XmlRootAttribute("DepositosDataSet")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class PrestamosDbDataSet : global::System.Data.DataSet {
+    public partial class DepositosDataSet : global::System.Data.DataSet {
         
-        private PrestamoesDataTable tablePrestamoes;
+        private DepositoesDataTable tableDepositoes;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public PrestamosDbDataSet() {
+        public DepositosDataSet() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace SegundoParcialAplicada2 {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        protected PrestamosDbDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected DepositosDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace SegundoParcialAplicada2 {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["Prestamoes"] != null)) {
-                    base.Tables.Add(new PrestamoesDataTable(ds.Tables["Prestamoes"]));
+                if ((ds.Tables["Depositoes"] != null)) {
+                    base.Tables.Add(new DepositoesDataTable(ds.Tables["Depositoes"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace SegundoParcialAplicada2 {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public PrestamoesDataTable Prestamoes {
+        public DepositoesDataTable Depositoes {
             get {
-                return this.tablePrestamoes;
+                return this.tableDepositoes;
             }
         }
         
@@ -127,7 +127,7 @@ namespace SegundoParcialAplicada2 {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            PrestamosDbDataSet cln = ((PrestamosDbDataSet)(base.Clone()));
+            DepositosDataSet cln = ((DepositosDataSet)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace SegundoParcialAplicada2 {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["Prestamoes"] != null)) {
-                    base.Tables.Add(new PrestamoesDataTable(ds.Tables["Prestamoes"]));
+                if ((ds.Tables["Depositoes"] != null)) {
+                    base.Tables.Add(new DepositoesDataTable(ds.Tables["Depositoes"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace SegundoParcialAplicada2 {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tablePrestamoes = ((PrestamoesDataTable)(base.Tables["Prestamoes"]));
+            this.tableDepositoes = ((DepositoesDataTable)(base.Tables["Depositoes"]));
             if ((initTable == true)) {
-                if ((this.tablePrestamoes != null)) {
-                    this.tablePrestamoes.InitVars();
+                if ((this.tableDepositoes != null)) {
+                    this.tableDepositoes.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace SegundoParcialAplicada2 {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "PrestamosDbDataSet";
+            this.DataSetName = "DepositosDataSet";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/PrestamosDbDataSet1.xsd";
+            this.Namespace = "http://tempuri.org/DepositosDataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tablePrestamoes = new PrestamoesDataTable();
-            base.Tables.Add(this.tablePrestamoes);
+            this.tableDepositoes = new DepositoesDataTable();
+            base.Tables.Add(this.tableDepositoes);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private bool ShouldSerializePrestamoes() {
+        private bool ShouldSerializeDepositoes() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace SegundoParcialAplicada2 {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            PrestamosDbDataSet ds = new PrestamosDbDataSet();
+            DepositosDataSet ds = new DepositosDataSet();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,31 +270,31 @@ namespace SegundoParcialAplicada2 {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public delegate void PrestamoesRowChangeEventHandler(object sender, PrestamoesRowChangeEvent e);
+        public delegate void DepositoesRowChangeEventHandler(object sender, DepositoesRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class PrestamoesDataTable : global::System.Data.TypedTableBase<PrestamoesRow> {
+        public partial class DepositoesDataTable : global::System.Data.TypedTableBase<DepositoesRow> {
             
-            private global::System.Data.DataColumn columnPrestamoId;
-            
-            private global::System.Data.DataColumn columnFecha;
+            private global::System.Data.DataColumn columnDepositoId;
             
             private global::System.Data.DataColumn columnCuentaId;
             
-            private global::System.Data.DataColumn columnCapital;
+            private global::System.Data.DataColumn columnFecha;
             
-            private global::System.Data.DataColumn columnInteres;
+            private global::System.Data.DataColumn columnConcepto;
             
-            private global::System.Data.DataColumn columnTiempo;
+            private global::System.Data.DataColumn columnMonto;
+            
+            private global::System.Data.DataColumn columnCuenta_CuentaBancariaId;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public PrestamoesDataTable() {
-                this.TableName = "Prestamoes";
+            public DepositoesDataTable() {
+                this.TableName = "Depositoes";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -302,7 +302,7 @@ namespace SegundoParcialAplicada2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal PrestamoesDataTable(global::System.Data.DataTable table) {
+            internal DepositoesDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -319,24 +319,16 @@ namespace SegundoParcialAplicada2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected PrestamoesDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected DepositoesDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn PrestamoIdColumn {
+            public global::System.Data.DataColumn DepositoIdColumn {
                 get {
-                    return this.columnPrestamoId;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn FechaColumn {
-                get {
-                    return this.columnFecha;
+                    return this.columnDepositoId;
                 }
             }
             
@@ -350,25 +342,33 @@ namespace SegundoParcialAplicada2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn CapitalColumn {
+            public global::System.Data.DataColumn FechaColumn {
                 get {
-                    return this.columnCapital;
+                    return this.columnFecha;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn InteresColumn {
+            public global::System.Data.DataColumn ConceptoColumn {
                 get {
-                    return this.columnInteres;
+                    return this.columnConcepto;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn TiempoColumn {
+            public global::System.Data.DataColumn MontoColumn {
                 get {
-                    return this.columnTiempo;
+                    return this.columnMonto;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn Cuenta_CuentaBancariaIdColumn {
+                get {
+                    return this.columnCuenta_CuentaBancariaId;
                 }
             }
             
@@ -383,57 +383,57 @@ namespace SegundoParcialAplicada2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public PrestamoesRow this[int index] {
+            public DepositoesRow this[int index] {
                 get {
-                    return ((PrestamoesRow)(this.Rows[index]));
+                    return ((DepositoesRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event PrestamoesRowChangeEventHandler PrestamoesRowChanging;
+            public event DepositoesRowChangeEventHandler DepositoesRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event PrestamoesRowChangeEventHandler PrestamoesRowChanged;
+            public event DepositoesRowChangeEventHandler DepositoesRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event PrestamoesRowChangeEventHandler PrestamoesRowDeleting;
+            public event DepositoesRowChangeEventHandler DepositoesRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event PrestamoesRowChangeEventHandler PrestamoesRowDeleted;
+            public event DepositoesRowChangeEventHandler DepositoesRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void AddPrestamoesRow(PrestamoesRow row) {
+            public void AddDepositoesRow(DepositoesRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public PrestamoesRow AddPrestamoesRow(System.DateTime Fecha, int CuentaId, decimal Capital, decimal Interes, int Tiempo) {
-                PrestamoesRow rowPrestamoesRow = ((PrestamoesRow)(this.NewRow()));
+            public DepositoesRow AddDepositoesRow(int CuentaId, System.DateTime Fecha, string Concepto, decimal Monto, int Cuenta_CuentaBancariaId) {
+                DepositoesRow rowDepositoesRow = ((DepositoesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        Fecha,
                         CuentaId,
-                        Capital,
-                        Interes,
-                        Tiempo};
-                rowPrestamoesRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowPrestamoesRow);
-                return rowPrestamoesRow;
+                        Fecha,
+                        Concepto,
+                        Monto,
+                        Cuenta_CuentaBancariaId};
+                rowDepositoesRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowDepositoesRow);
+                return rowDepositoesRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public PrestamoesRow FindByPrestamoId(int PrestamoId) {
-                return ((PrestamoesRow)(this.Rows.Find(new object[] {
-                            PrestamoId})));
+            public DepositoesRow FindByDepositoId(int DepositoId) {
+                return ((DepositoesRow)(this.Rows.Find(new object[] {
+                            DepositoId})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                PrestamoesDataTable cln = ((PrestamoesDataTable)(base.Clone()));
+                DepositoesDataTable cln = ((DepositoesDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -441,74 +441,73 @@ namespace SegundoParcialAplicada2 {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new PrestamoesDataTable();
+                return new DepositoesDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             internal void InitVars() {
-                this.columnPrestamoId = base.Columns["PrestamoId"];
-                this.columnFecha = base.Columns["Fecha"];
+                this.columnDepositoId = base.Columns["DepositoId"];
                 this.columnCuentaId = base.Columns["CuentaId"];
-                this.columnCapital = base.Columns["Capital"];
-                this.columnInteres = base.Columns["Interes"];
-                this.columnTiempo = base.Columns["Tiempo"];
+                this.columnFecha = base.Columns["Fecha"];
+                this.columnConcepto = base.Columns["Concepto"];
+                this.columnMonto = base.Columns["Monto"];
+                this.columnCuenta_CuentaBancariaId = base.Columns["Cuenta_CuentaBancariaId"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             private void InitClass() {
-                this.columnPrestamoId = new global::System.Data.DataColumn("PrestamoId", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPrestamoId);
-                this.columnFecha = new global::System.Data.DataColumn("Fecha", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnFecha);
+                this.columnDepositoId = new global::System.Data.DataColumn("DepositoId", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDepositoId);
                 this.columnCuentaId = new global::System.Data.DataColumn("CuentaId", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCuentaId);
-                this.columnCapital = new global::System.Data.DataColumn("Capital", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCapital);
-                this.columnInteres = new global::System.Data.DataColumn("Interes", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnInteres);
-                this.columnTiempo = new global::System.Data.DataColumn("Tiempo", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTiempo);
+                this.columnFecha = new global::System.Data.DataColumn("Fecha", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFecha);
+                this.columnConcepto = new global::System.Data.DataColumn("Concepto", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnConcepto);
+                this.columnMonto = new global::System.Data.DataColumn("Monto", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMonto);
+                this.columnCuenta_CuentaBancariaId = new global::System.Data.DataColumn("Cuenta_CuentaBancariaId", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCuenta_CuentaBancariaId);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnPrestamoId}, true));
-                this.columnPrestamoId.AutoIncrement = true;
-                this.columnPrestamoId.AutoIncrementSeed = -1;
-                this.columnPrestamoId.AutoIncrementStep = -1;
-                this.columnPrestamoId.AllowDBNull = false;
-                this.columnPrestamoId.ReadOnly = true;
-                this.columnPrestamoId.Unique = true;
-                this.columnFecha.AllowDBNull = false;
+                                this.columnDepositoId}, true));
+                this.columnDepositoId.AutoIncrement = true;
+                this.columnDepositoId.AutoIncrementSeed = -1;
+                this.columnDepositoId.AutoIncrementStep = -1;
+                this.columnDepositoId.AllowDBNull = false;
+                this.columnDepositoId.ReadOnly = true;
+                this.columnDepositoId.Unique = true;
                 this.columnCuentaId.AllowDBNull = false;
-                this.columnCapital.AllowDBNull = false;
-                this.columnInteres.AllowDBNull = false;
-                this.columnTiempo.AllowDBNull = false;
+                this.columnFecha.AllowDBNull = false;
+                this.columnConcepto.MaxLength = 100;
+                this.columnMonto.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public PrestamoesRow NewPrestamoesRow() {
-                return ((PrestamoesRow)(this.NewRow()));
+            public DepositoesRow NewDepositoesRow() {
+                return ((DepositoesRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new PrestamoesRow(builder);
+                return new DepositoesRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(PrestamoesRow);
+                return typeof(DepositoesRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.PrestamoesRowChanged != null)) {
-                    this.PrestamoesRowChanged(this, new PrestamoesRowChangeEvent(((PrestamoesRow)(e.Row)), e.Action));
+                if ((this.DepositoesRowChanged != null)) {
+                    this.DepositoesRowChanged(this, new DepositoesRowChangeEvent(((DepositoesRow)(e.Row)), e.Action));
                 }
             }
             
@@ -516,8 +515,8 @@ namespace SegundoParcialAplicada2 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.PrestamoesRowChanging != null)) {
-                    this.PrestamoesRowChanging(this, new PrestamoesRowChangeEvent(((PrestamoesRow)(e.Row)), e.Action));
+                if ((this.DepositoesRowChanging != null)) {
+                    this.DepositoesRowChanging(this, new DepositoesRowChangeEvent(((DepositoesRow)(e.Row)), e.Action));
                 }
             }
             
@@ -525,8 +524,8 @@ namespace SegundoParcialAplicada2 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.PrestamoesRowDeleted != null)) {
-                    this.PrestamoesRowDeleted(this, new PrestamoesRowChangeEvent(((PrestamoesRow)(e.Row)), e.Action));
+                if ((this.DepositoesRowDeleted != null)) {
+                    this.DepositoesRowDeleted(this, new DepositoesRowChangeEvent(((DepositoesRow)(e.Row)), e.Action));
                 }
             }
             
@@ -534,14 +533,14 @@ namespace SegundoParcialAplicada2 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.PrestamoesRowDeleting != null)) {
-                    this.PrestamoesRowDeleting(this, new PrestamoesRowChangeEvent(((PrestamoesRow)(e.Row)), e.Action));
+                if ((this.DepositoesRowDeleting != null)) {
+                    this.DepositoesRowDeleting(this, new DepositoesRowChangeEvent(((DepositoesRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void RemovePrestamoesRow(PrestamoesRow row) {
+            public void RemoveDepositoesRow(DepositoesRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -550,7 +549,7 @@ namespace SegundoParcialAplicada2 {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                PrestamosDbDataSet ds = new PrestamosDbDataSet();
+                DepositosDataSet ds = new DepositosDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -568,7 +567,7 @@ namespace SegundoParcialAplicada2 {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "PrestamoesDataTable";
+                attribute2.FixedValue = "DepositoesDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -612,36 +611,25 @@ namespace SegundoParcialAplicada2 {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class PrestamoesRow : global::System.Data.DataRow {
+        public partial class DepositoesRow : global::System.Data.DataRow {
             
-            private PrestamoesDataTable tablePrestamoes;
+            private DepositoesDataTable tableDepositoes;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal PrestamoesRow(global::System.Data.DataRowBuilder rb) : 
+            internal DepositoesRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tablePrestamoes = ((PrestamoesDataTable)(this.Table));
+                this.tableDepositoes = ((DepositoesDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int PrestamoId {
+            public int DepositoId {
                 get {
-                    return ((int)(this[this.tablePrestamoes.PrestamoIdColumn]));
+                    return ((int)(this[this.tableDepositoes.DepositoIdColumn]));
                 }
                 set {
-                    this[this.tablePrestamoes.PrestamoIdColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public System.DateTime Fecha {
-                get {
-                    return ((global::System.DateTime)(this[this.tablePrestamoes.FechaColumn]));
-                }
-                set {
-                    this[this.tablePrestamoes.FechaColumn] = value;
+                    this[this.tableDepositoes.DepositoIdColumn] = value;
                 }
             }
             
@@ -649,44 +637,89 @@ namespace SegundoParcialAplicada2 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public int CuentaId {
                 get {
-                    return ((int)(this[this.tablePrestamoes.CuentaIdColumn]));
+                    return ((int)(this[this.tableDepositoes.CuentaIdColumn]));
                 }
                 set {
-                    this[this.tablePrestamoes.CuentaIdColumn] = value;
+                    this[this.tableDepositoes.CuentaIdColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public decimal Capital {
+            public System.DateTime Fecha {
                 get {
-                    return ((decimal)(this[this.tablePrestamoes.CapitalColumn]));
+                    return ((global::System.DateTime)(this[this.tableDepositoes.FechaColumn]));
                 }
                 set {
-                    this[this.tablePrestamoes.CapitalColumn] = value;
+                    this[this.tableDepositoes.FechaColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public decimal Interes {
+            public string Concepto {
                 get {
-                    return ((decimal)(this[this.tablePrestamoes.InteresColumn]));
+                    try {
+                        return ((string)(this[this.tableDepositoes.ConceptoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Concepto\' in table \'Depositoes\' is DBNull.", e);
+                    }
                 }
                 set {
-                    this[this.tablePrestamoes.InteresColumn] = value;
+                    this[this.tableDepositoes.ConceptoColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int Tiempo {
+            public decimal Monto {
                 get {
-                    return ((int)(this[this.tablePrestamoes.TiempoColumn]));
+                    return ((decimal)(this[this.tableDepositoes.MontoColumn]));
                 }
                 set {
-                    this[this.tablePrestamoes.TiempoColumn] = value;
+                    this[this.tableDepositoes.MontoColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int Cuenta_CuentaBancariaId {
+                get {
+                    try {
+                        return ((int)(this[this.tableDepositoes.Cuenta_CuentaBancariaIdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cuenta_CuentaBancariaId\' in table \'Depositoes\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDepositoes.Cuenta_CuentaBancariaIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsConceptoNull() {
+                return this.IsNull(this.tableDepositoes.ConceptoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetConceptoNull() {
+                this[this.tableDepositoes.ConceptoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsCuenta_CuentaBancariaIdNull() {
+                return this.IsNull(this.tableDepositoes.Cuenta_CuentaBancariaIdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetCuenta_CuentaBancariaIdNull() {
+                this[this.tableDepositoes.Cuenta_CuentaBancariaIdColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -694,22 +727,22 @@ namespace SegundoParcialAplicada2 {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public class PrestamoesRowChangeEvent : global::System.EventArgs {
+        public class DepositoesRowChangeEvent : global::System.EventArgs {
             
-            private PrestamoesRow eventRow;
+            private DepositoesRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public PrestamoesRowChangeEvent(PrestamoesRow row, global::System.Data.DataRowAction action) {
+            public DepositoesRowChangeEvent(DepositoesRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public PrestamoesRow Row {
+            public DepositoesRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -725,7 +758,7 @@ namespace SegundoParcialAplicada2 {
         }
     }
 }
-namespace SegundoParcialAplicada2.PrestamosDbDataSetTableAdapters {
+namespace SegundoParcialAplicada2.DepositosDataSetTableAdapters {
     
     
     /// <summary>
@@ -737,7 +770,7 @@ namespace SegundoParcialAplicada2.PrestamosDbDataSetTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class PrestamoesTableAdapter : global::System.ComponentModel.Component {
+    public partial class DepositoesTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -751,7 +784,7 @@ namespace SegundoParcialAplicada2.PrestamosDbDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public PrestamoesTableAdapter() {
+        public DepositoesTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -848,48 +881,49 @@ namespace SegundoParcialAplicada2.PrestamosDbDataSetTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "Prestamoes";
-            tableMapping.ColumnMappings.Add("PrestamoId", "PrestamoId");
-            tableMapping.ColumnMappings.Add("Fecha", "Fecha");
+            tableMapping.DataSetTable = "Depositoes";
+            tableMapping.ColumnMappings.Add("DepositoId", "DepositoId");
             tableMapping.ColumnMappings.Add("CuentaId", "CuentaId");
-            tableMapping.ColumnMappings.Add("Capital", "Capital");
-            tableMapping.ColumnMappings.Add("Interes", "Interes");
-            tableMapping.ColumnMappings.Add("Tiempo", "Tiempo");
+            tableMapping.ColumnMappings.Add("Fecha", "Fecha");
+            tableMapping.ColumnMappings.Add("Concepto", "Concepto");
+            tableMapping.ColumnMappings.Add("Monto", "Monto");
+            tableMapping.ColumnMappings.Add("Cuenta_CuentaBancariaId", "Cuenta_CuentaBancariaId");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Prestamoes] WHERE (([PrestamoId] = @Original_PrestamoId))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Depositoes] WHERE (([DepositoId] = @Original_DepositoId))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PrestamoId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PrestamoId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DepositoId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DepositoId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Prestamoes] ([Fecha], [CuentaId], [Capital], [Interes], [Tiemp" +
-                "o]) VALUES (@Fecha, @CuentaId, @Capital, @Interes, @Tiempo)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Depositoes] ([CuentaId], [Fecha], [Concepto], [Monto], [Cuenta" +
+                "_CuentaBancariaId]) VALUES (@CuentaId, @Fecha, @Concepto, @Monto, @Cuenta_Cuenta" +
+                "BancariaId)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CuentaId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CuentaId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Capital", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "Capital", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Interes", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "Interes", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Tiempo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Tiempo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Concepto", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Concepto", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Monto", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "Monto", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cuenta_CuentaBancariaId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cuenta_CuentaBancariaId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Prestamoes] SET [Fecha] = @Fecha, [CuentaId] = @CuentaId, [Capital]" +
-                " = @Capital, [Interes] = @Interes, [Tiempo] = @Tiempo WHERE (([PrestamoId] = @Or" +
-                "iginal_PrestamoId))";
+            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Depositoes] SET [CuentaId] = @CuentaId, [Fecha] = @Fecha, [Concepto" +
+                "] = @Concepto, [Monto] = @Monto, [Cuenta_CuentaBancariaId] = @Cuenta_CuentaBanca" +
+                "riaId WHERE (([DepositoId] = @Original_DepositoId))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CuentaId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CuentaId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Capital", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "Capital", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Interes", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "Interes", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Tiempo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Tiempo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PrestamoId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PrestamoId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Concepto", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Concepto", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Monto", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "Monto", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cuenta_CuentaBancariaId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cuenta_CuentaBancariaId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DepositoId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DepositoId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::SegundoParcialAplicada2.Properties.Settings.Default.CuotasDbConnectionString;
+            this._connection.ConnectionString = "Data Source=LUISOPC\\sql;Initial Catalog=CuotasDb;Integrated Security=True";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -898,7 +932,8 @@ namespace SegundoParcialAplicada2.PrestamosDbDataSetTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT PrestamoId, Fecha, CuentaId, Capital, Interes, Tiempo FROM dbo.Prestamoes";
+            this._commandCollection[0].CommandText = "SELECT DepositoId, CuentaId, Fecha, Concepto, Monto, Cuenta_CuentaBancariaId FROM" +
+                " dbo.Depositoes";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -906,7 +941,7 @@ namespace SegundoParcialAplicada2.PrestamosDbDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(PrestamosDbDataSet.PrestamoesDataTable dataTable) {
+        public virtual int Fill(DepositosDataSet.DepositoesDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -919,9 +954,9 @@ namespace SegundoParcialAplicada2.PrestamosDbDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual PrestamosDbDataSet.PrestamoesDataTable GetData() {
+        public virtual DepositosDataSet.DepositoesDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            PrestamosDbDataSet.PrestamoesDataTable dataTable = new PrestamosDbDataSet.PrestamoesDataTable();
+            DepositosDataSet.DepositoesDataTable dataTable = new DepositosDataSet.DepositoesDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -929,15 +964,15 @@ namespace SegundoParcialAplicada2.PrestamosDbDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(PrestamosDbDataSet.PrestamoesDataTable dataTable) {
+        public virtual int Update(DepositosDataSet.DepositoesDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(PrestamosDbDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "Prestamoes");
+        public virtual int Update(DepositosDataSet dataSet) {
+            return this.Adapter.Update(dataSet, "Depositoes");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -959,8 +994,8 @@ namespace SegundoParcialAplicada2.PrestamosDbDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_PrestamoId) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_PrestamoId));
+        public virtual int Delete(int Original_DepositoId) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_DepositoId));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -981,12 +1016,22 @@ namespace SegundoParcialAplicada2.PrestamosDbDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(System.DateTime Fecha, int CuentaId, decimal Capital, decimal Interes, int Tiempo) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((System.DateTime)(Fecha));
-            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(CuentaId));
-            this.Adapter.InsertCommand.Parameters[2].Value = ((decimal)(Capital));
-            this.Adapter.InsertCommand.Parameters[3].Value = ((decimal)(Interes));
-            this.Adapter.InsertCommand.Parameters[4].Value = ((int)(Tiempo));
+        public virtual int Insert(int CuentaId, System.DateTime Fecha, string Concepto, decimal Monto, global::System.Nullable<int> Cuenta_CuentaBancariaId) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(CuentaId));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((System.DateTime)(Fecha));
+            if ((Concepto == null)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Concepto));
+            }
+            this.Adapter.InsertCommand.Parameters[3].Value = ((decimal)(Monto));
+            if ((Cuenta_CuentaBancariaId.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((int)(Cuenta_CuentaBancariaId.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1007,13 +1052,23 @@ namespace SegundoParcialAplicada2.PrestamosDbDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(System.DateTime Fecha, int CuentaId, decimal Capital, decimal Interes, int Tiempo, int Original_PrestamoId) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((System.DateTime)(Fecha));
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(CuentaId));
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((decimal)(Capital));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((decimal)(Interes));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Tiempo));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_PrestamoId));
+        public virtual int Update(int CuentaId, System.DateTime Fecha, string Concepto, decimal Monto, global::System.Nullable<int> Cuenta_CuentaBancariaId, int Original_DepositoId) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(CuentaId));
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((System.DateTime)(Fecha));
+            if ((Concepto == null)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Concepto));
+            }
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((decimal)(Monto));
+            if ((Cuenta_CuentaBancariaId.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Cuenta_CuentaBancariaId.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_DepositoId));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1043,7 +1098,7 @@ namespace SegundoParcialAplicada2.PrestamosDbDataSetTableAdapters {
         
         private UpdateOrderOption _updateOrder;
         
-        private PrestamoesTableAdapter _prestamoesTableAdapter;
+        private DepositoesTableAdapter _depositoesTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -1065,12 +1120,12 @@ namespace SegundoParcialAplicada2.PrestamosDbDataSetTableAdapters {
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public PrestamoesTableAdapter PrestamoesTableAdapter {
+        public DepositoesTableAdapter DepositoesTableAdapter {
             get {
-                return this._prestamoesTableAdapter;
+                return this._depositoesTableAdapter;
             }
             set {
-                this._prestamoesTableAdapter = value;
+                this._depositoesTableAdapter = value;
             }
         }
         
@@ -1093,9 +1148,9 @@ namespace SegundoParcialAplicada2.PrestamosDbDataSetTableAdapters {
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._prestamoesTableAdapter != null) 
-                            && (this._prestamoesTableAdapter.Connection != null))) {
-                    return this._prestamoesTableAdapter.Connection;
+                if (((this._depositoesTableAdapter != null) 
+                            && (this._depositoesTableAdapter.Connection != null))) {
+                    return this._depositoesTableAdapter.Connection;
                 }
                 return null;
             }
@@ -1110,7 +1165,7 @@ namespace SegundoParcialAplicada2.PrestamosDbDataSetTableAdapters {
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._prestamoesTableAdapter != null)) {
+                if ((this._depositoesTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -1122,14 +1177,14 @@ namespace SegundoParcialAplicada2.PrestamosDbDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateUpdatedRows(PrestamosDbDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(DepositosDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._prestamoesTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Prestamoes.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._depositoesTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Depositoes.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._prestamoesTableAdapter.Update(updatedRows));
+                    result = (result + this._depositoesTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -1141,13 +1196,13 @@ namespace SegundoParcialAplicada2.PrestamosDbDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateInsertedRows(PrestamosDbDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(DepositosDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._prestamoesTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Prestamoes.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._depositoesTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Depositoes.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._prestamoesTableAdapter.Update(addedRows));
+                    result = (result + this._depositoesTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -1159,13 +1214,13 @@ namespace SegundoParcialAplicada2.PrestamosDbDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateDeletedRows(PrestamosDbDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(DepositosDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._prestamoesTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Prestamoes.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._depositoesTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Depositoes.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._prestamoesTableAdapter.Update(deletedRows));
+                    result = (result + this._depositoesTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -1201,15 +1256,15 @@ namespace SegundoParcialAplicada2.PrestamosDbDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public virtual int UpdateAll(PrestamosDbDataSet dataSet) {
+        public virtual int UpdateAll(DepositosDataSet dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
-            if (((this._prestamoesTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._prestamoesTableAdapter.Connection) == false))) {
+            if (((this._depositoesTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._depositoesTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -1245,13 +1300,13 @@ namespace SegundoParcialAplicada2.PrestamosDbDataSetTableAdapters {
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._prestamoesTableAdapter != null)) {
-                    revertConnections.Add(this._prestamoesTableAdapter, this._prestamoesTableAdapter.Connection);
-                    this._prestamoesTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._prestamoesTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._prestamoesTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._prestamoesTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._prestamoesTableAdapter.Adapter);
+                if ((this._depositoesTableAdapter != null)) {
+                    revertConnections.Add(this._depositoesTableAdapter, this._depositoesTableAdapter.Connection);
+                    this._depositoesTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._depositoesTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._depositoesTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._depositoesTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._depositoesTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -1312,9 +1367,9 @@ namespace SegundoParcialAplicada2.PrestamosDbDataSetTableAdapters {
                 if (workConnOpened) {
                     workConnection.Close();
                 }
-                if ((this._prestamoesTableAdapter != null)) {
-                    this._prestamoesTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._prestamoesTableAdapter]));
-                    this._prestamoesTableAdapter.Transaction = null;
+                if ((this._depositoesTableAdapter != null)) {
+                    this._depositoesTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._depositoesTableAdapter]));
+                    this._depositoesTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

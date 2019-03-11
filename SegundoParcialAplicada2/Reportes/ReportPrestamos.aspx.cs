@@ -18,12 +18,12 @@ namespace SegundoParcialAplicada2.Reportes
         {
             if (!Page.IsPostBack)
             {
-                ElPrestamosReportViewer.ProcessingMode = ProcessingMode.Local;
-                ElPrestamosReportViewer.Reset();
-                ElPrestamosReportViewer.LocalReport.ReportPath = Server.MapPath(@"~\Reportes\ListPrestamos.rdlc");
-                ElPrestamosReportViewer.LocalReport.DataSources.Clear();
-                ElPrestamosReportViewer.LocalReport.DataSources.Add(new ReportDataSource("PrestamosDS", BLL.RepositorioPrestamo.NPrestamos(filtro)));
-                ElPrestamosReportViewer.LocalReport.Refresh();
+                PrestamosReportViewer.ProcessingMode = ProcessingMode.Local;
+                PrestamosReportViewer.Reset();
+                PrestamosReportViewer.LocalReport.ReportPath = Server.MapPath(@"~\Reportes\ListadoPrestamos.rdlc");
+                PrestamosReportViewer.LocalReport.DataSources.Clear();
+                PrestamosReportViewer.LocalReport.DataSources.Add(new ReportDataSource("Prestamos", BLL.RepositorioPrestamo.NPrestamos(filtro)));
+                PrestamosReportViewer.LocalReport.Refresh();
             }
         }
     }

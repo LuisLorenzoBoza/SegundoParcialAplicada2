@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Prestamos.aspx.cs" Inherits="SegundoParcialAplicada2.Reportes.ReportPrestamos" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ReportPrestamos.aspx.cs" Inherits="SegundoParcialAplicada2.Reportes.ReportPrestamos" %>
 
 <%@ Register assembly="Microsoft.ReportViewer.WebForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" namespace="Microsoft.Reporting.WebForms" tagprefix="rsweb" %>
 
@@ -14,10 +14,9 @@
              <%--ScriptManager--%>
             <asp:ScriptManager ID="ScriptManager" runat="server"></asp:ScriptManager>
 
-
-           <%--Viewer--%>
-            <rsweb:ReportViewer ID="ElPrestamosReportViewer" runat="server" ProcessingMode="Remote" Height="100%" Width="100%" >
-               
+            <%--Viewer--%>
+            <rsweb:ReportViewer ID="PrestamosReportViewer" runat="server" ProcessingMode="Remote" Height="650px" Width="950px">
+                <ServerReport ReportPath="" ReportServerUrl="" />
             </rsweb:ReportViewer>
         </div>
     </form>

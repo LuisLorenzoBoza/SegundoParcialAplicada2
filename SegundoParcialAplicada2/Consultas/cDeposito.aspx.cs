@@ -51,7 +51,7 @@ namespace SegundoParcialAplicada2.Consultas
 
         protected void ImprimirButton_Click(object sender, EventArgs e)
         {
-            Response.Redirect("/Reportes/DepositoReportViewer.aspx");
+            Response.Redirect("/Reportes/ReportDepositos.aspx");
         }
     }
 }
