@@ -40,13 +40,13 @@ namespace SegundoParcialAplicada2.Consultas {
         protected global::System.Web.UI.WebControls.Button BuscarButton;
         
         /// <summary>
-        /// DatosGridView control.
+        /// PrestamoGridView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView DatosGridView;
+        protected global::System.Web.UI.WebControls.GridView PrestamoGridView;
         
         /// <summary>
         /// ImprimirButton control.

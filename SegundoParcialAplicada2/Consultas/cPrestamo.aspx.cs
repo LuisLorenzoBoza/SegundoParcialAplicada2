@@ -44,8 +44,8 @@ namespace SegundoParcialAplicada2.Consultas
                         break;
                 }
 
-                DatosGridView.DataSource = repositorio.GetList(filtro);
-                DatosGridView.DataBind();
+                PrestamoGridView.DataSource = repositorio.GetList(filtro);
+                PrestamoGridView.DataBind();
             }
         }
 
@@ -53,5 +53,7 @@ namespace SegundoParcialAplicada2.Consultas
         {
             Response.Redirect("/Reportes/PrestamosReportViewer.aspx");
         }
+
+        
     }
 }

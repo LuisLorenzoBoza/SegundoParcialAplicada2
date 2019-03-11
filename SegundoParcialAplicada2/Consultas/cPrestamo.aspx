@@ -24,21 +24,19 @@
             <br />
             <%--GRID--%>
             <div class="col-md-12">
-                <asp:GridView ID="DatosGridView"
-                    runat="server"
-                    class="table table-condensed table-bordered table-responsive"
-                    CellPadding="4" ForeColor="#333333" GridLines="None">
-
-                    <AlternatingRowStyle BackColor="White" />
-                    <Columns>
-                        <asp:HyperLinkField ControlStyle-ForeColor="Black"
-                            DataNavigateUrlFields="CuentaId"
-                            DataNavigateUrlFormatString="rCuentas.aspx?Id={0}">
-                        </asp:HyperLinkField>
-                    </Columns>
-                    <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                    <RowStyle BackColor="#EFF3FB" />
-                </asp:GridView>
+                <asp:GridView ID="PrestamoGridView" runat="server" class="table table-condensed table-bordered table-responsive" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None">
+                            <AlternatingRowStyle BackColor="LightSkyBlue" />
+                            <Columns>
+                                <asp:BoundField DataField="PrestamoId" HeaderText="Id del Préstamo" />
+                                <asp:BoundField DataField="Fecha" HeaderText="Fecha" />
+                                <asp:BoundField DataField="CuentaId" HeaderText="Id de la Cuenta" />
+                                <asp:BoundField DataField="Capital" HeaderText="Capital" />
+                                <asp:BoundField DataField="Interes" HeaderText="%Interés" />                                
+                                <asp:BoundField DataField="Tiempo" HeaderText="Meses" />
+                                <asp:BoundField DataField="Total" HeaderText="Total" />
+                            </Columns>
+                            <HeaderStyle BackColor="LightBlue" Font-Bold="True" />
+                        </asp:GridView>
             </div>
 
             <div class="card-footer">

@@ -27,17 +27,16 @@
 
             <%--GRID--%>
             <div class="form-row justify-content-center">
-        <asp:GridView ID="DatosGridView" runat="server" class="table table-condensed table-bordered table-responsive" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None">
-            <AlternatingRowStyle BackColor="SkyBlue" />
-                    <Columns>
-                        <asp:BoundField DataField="CuentaId" HeaderText="Cuenta Id" />
-                        <asp:BoundField DataField="Fecha" HeaderText="Fecha" />
-                        <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
-                        <asp:BoundField DataField="Balance" HeaderText="Balance" />
-                        
-                    </Columns>
-                    
-                </asp:GridView>
+                 <asp:GridView ID="CuentaBancariaGridView" runat="server" class="table table-condensed table-bordered table-responsive" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None">
+                            <AlternatingRowStyle BackColor="LightSkyBlue" />
+                            <Columns>
+                                <asp:BoundField DataField="CuentaBancariaId" HeaderText="Id de Cuenta" />
+                                <asp:BoundField DataField="Fecha" HeaderText="Fecha" />
+                                <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
+                                <asp:BoundField DataField="Balance" HeaderText="Balance" />
+                            </Columns>
+                            <HeaderStyle BackColor="LightBlue" Font-Bold="True" />
+                 </asp:GridView>
             </div>
         <div class="card-footer">
                 <div class="justify-content-start">

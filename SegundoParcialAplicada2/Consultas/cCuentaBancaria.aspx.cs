@@ -18,13 +18,7 @@ namespace SegundoParcialAplicada2.Consultas
 
         }
 
-        private int ToInt(object valor)
-        {
-            int retorno = 0;
-            int.TryParse(valor.ToString(), out retorno);
-
-            return retorno;
-        }
+        
 
 
         protected void BuscarButton_Click(object sender, EventArgs e)
@@ -53,9 +47,14 @@ namespace SegundoParcialAplicada2.Consultas
                         break;
                 }
 
-                DatosGridView.DataSource = repositorio.GetList(filtro);
-                DatosGridView.DataBind();
+                CuentaBancariaGridView.DataSource = null;
+                CuentaBancariaGridView.DataSource = repositorio.GetList(filtro);
+                CuentaBancariaGridView.DataBind();
+                
+                
+
             }
+
         }
 
         protected void ImprimirButton_Click(object sender, EventArgs e)

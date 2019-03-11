@@ -44,8 +44,8 @@ namespace SegundoParcialAplicada2.Consultas
                         break;
                 }
 
-                DatosGridView.DataSource = repositorio.GetList(filtro);
-                DatosGridView.DataBind();
+                DepositoGridView.DataSource = repositorio.GetList(filtro);
+                DepositoGridView.DataBind();
             }
         }
 
