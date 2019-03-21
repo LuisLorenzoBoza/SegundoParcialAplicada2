@@ -3,162 +3,115 @@ using ENTIDADES;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using SegundoParcialAplicada2.Utilitarios;
 
 namespace SegundoParcialAplicada2.Registros
 {
     public partial class rPrestamos : System.Web.UI.Page
     {
-        Repositorio<CuentaBancaria> repositorioBase = new Repositorio<CuentaBancaria>();
-        RepositorioPrestamo repositorioPrestamo = new RepositorioPrestamo();
-        List<CuotaMensual> Detalle = new List<CuotaMensual>();
+        List<CuotaMensual> listDetalle = new List<CuotaMensual>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            fechaTextBox.Text = DateTime.Now.ToString("yyyy-MM-dd");
 
+            if (!Page.IsPostBack)
+            {
+                Repositorio<CuentaBancaria> repositorio = new Repositorio<CuentaBancaria>();
+
+                cuentaDropDownList.DataSource = repositorio.GetList(t => true);
+                cuentaDropDownList.DataValueField = "CuentaBancariaId";
+                cuentaDropDownList.DataTextField = "Nombre";
+                cuentaDropDownList.DataBind();
+
+                ViewState["Prestamo"] = new Prestamo();
+            }
         }
 
-
-        private Prestamo LlenaClase()
+        private int ToInt(object valor)
         {
-            var Entidad = new Prestamo();
+            int retorno = 0;
+            int.TryParse(valor.ToString(), out retorno);
 
-            Entidad.CuentaBancariaId = int.Parse(cuentaBancariaIdTextbox.Text);
-            Entidad.Capital = decimal.Parse(capitalTextbox.Text);
-            Entidad.Interes = decimal.Parse(interesTextbox.Text);
-            Entidad.Tiempo = int.Parse(tiempoTextbox.Text);
-            Entidad.Detalle = Detalle;
-
-            return Entidad;
+            return retorno;
         }
-
-        private void LlenaCampos(Prestamo Entidad)
+        private double ToDouble(object valor)
         {
-            CuentaBancaria cuenta = repositorioBase.Buscar(Entidad.CuentaBancariaId);
-            prestamoIdTextbox.Text = Entidad.PrestamoId.ToString();
-            fechaTextbox.Text = Entidad.Fecha.ToString("yyyy-MM-dd");
-            cuentaBancariaIdTextbox.Text = cuenta.CuentaBancariaId.ToString();
-            capitalTextbox.Text = Entidad.Capital.ToString();
-            interesTextbox.Text = Entidad.Interes.ToString();
-            tiempoTextbox.Text = Entidad.Tiempo.ToString();
+            double retorno = 0;
+            double.TryParse(valor.ToString(), out retorno);
 
-            DatosGridView.DataSource = Entidad.Detalle.ToList();
-            DatosGridView.DataBind();
+            return Convert.ToDouble(retorno);
         }
 
-        void Limpiar()
+        public Prestamo LlenarClase()
         {
-            prestamoIdTextbox.Text = "0";
-            fechaTextbox.Text = DateTime.Today.ToString();
-            cuentaBancariaIdTextbox.Text = "1";
-            capitalTextbox.Text = "0";
-            interesTextbox.Text = "0";
-            tiempoTextbox.Text = "1";
-            DatosGridView.Visible = true;
-            DatosGridView.DataBind();
+            Prestamo prestamo = new Prestamo();
+
+            prestamo = (Prestamo)ViewState["Prestamo"];
+            listDetalle = (List<CuotaMensual>)prestamoGridView.DataSource;
+
+            prestamo.PrestamoId = Utils.ToInt(prestamoIdTextBox.Text);
+            prestamo.Fecha = Convert.ToDateTime(fechaTextBox.Text).Date;
+            prestamo.CuentaId = ToInt(cuentaDropDownList.SelectedValue);
+            prestamo.Capital = ToInt(capitalTextBox.Text);
+            prestamo.PctInteres = ToInt(pctIntTextBox.Text);
+            prestamo.TiempoMeses = ToInt(tieMesTextBox.Text);
+            prestamo.Total = ToInt(totalTextBox.Text);
+            prestamo.Detalle = listDetalle;
+
+            return prestamo;
         }
 
-        protected void NuevoButton_Click(object sender, EventArgs e)
+        protected void BindGrid()
+        {
+            prestamoGridView.DataSource = ((Prestamo)ViewState["Prestamo"]).Detalle;
+            prestamoGridView.DataBind();
+        }
+
+        public void LlenarCampos(Prestamo prestamo)
         {
             Limpiar();
+            prestamoIdTextBox.Text = prestamo.PrestamoId.ToString();
+            fechaTextBox.Text = prestamo.Fecha.ToString("yyyy-MM-dd");
+            cuentaDropDownList.SelectedValue = prestamo.CuentaId.ToString();
+            capitalTextBox.Text = prestamo.Capital.ToString();
+            pctIntTextBox.Text = prestamo.PctInteres.ToString();
+            tieMesTextBox.Text = prestamo.TiempoMeses.ToString();
+            prestamoGridView.DataSource = prestamo.Detalle.ToList();
+            this.BindGrid();
+            totalTextBox.Text = prestamo.Total.ToString();
+        }
+        protected void Limpiar()
+        {
+            prestamoIdTextBox.Text = "0";
+            fechaTextBox.Text = DateTime.Now.ToString("yyyy-MM-dd");
+            cuentaDropDownList.SelectedIndex = 0;
+            capitalTextBox.Text = "";
+            pctIntTextBox.Text = "";
+            tieMesTextBox.Text = "";
+            totalTextBox.Text = "";
+            ViewState["Prestamo"] = new Prestamo();
+            this.BindGrid();
         }
 
-        protected void GuardarButton_Click(object sender, EventArgs e)
+        private bool HayErrores()
         {
-            if (prestamoIdTextbox.Text == "0")
+            bool HayErrores = false;
+
+            if (prestamoGridView.Rows.Count == 0)
             {
-                repositorioPrestamo.Guardar(LlenaClase());
-                ScriptManager.RegisterStartupScript(Page, typeof(Page), "Popup", "alert('Guardado con exito.')", true);
+                Utils.ShowToastr(this, "Debe calcular su Préstamo.", "Error", "error");
+                HayErrores = true;
             }
-            else
+            if (ToInt(cuentaDropDownList.SelectedValue) < 1)
             {
-                Prestamo prestamo = repositorioPrestamo.Buscar(int.Parse(prestamoIdTextbox.Text));
-
-                prestamo = LlenaClase();
-
-                repositorioPrestamo.Modificar(prestamo);
-                ScriptManager.RegisterStartupScript(Page, typeof(Page), "Popup", "alert('Modificado con Exito.')", true);
+                Utils.ShowToastr(this, "Debe Seleccionar una Cuenta que haya guardada.", "Error", "error");
+                HayErrores = true;
             }
-            Limpiar();
-        }
-
-        protected void EliminarButton_Click(object sender, EventArgs e)
-        {
-            int id = Convert.ToInt32(prestamoIdTextbox.Text);
-            if (id != 0)
-            {
-                if (repositorioPrestamo.Buscar(id) != null)
-                {
-                    repositorioPrestamo.Eliminar(int.Parse(prestamoIdTextbox.Text));
-                    ScriptManager.RegisterStartupScript(Page, typeof(Page), "Popup", "alert('Eliminado con exito')", true);
-                }
-                else
-                {
-                    ScriptManager.RegisterStartupScript(Page, typeof(Page), "Popup", "alert('No existe')", true);
-                }
-            }
-            else
-                ScriptManager.RegisterStartupScript(Page, typeof(Page), "Popup", "alert('Seleccione un ID')", true);
-        }
-
-        protected void BuscarButton_Click(object sender, EventArgs e)
-        {
-            int id = Convert.ToInt32(prestamoIdTextbox.Text);
-            if (id != 0)
-            {
-                if (repositorioPrestamo.Buscar(id) != null)
-                {
-                    LlenaCampos(repositorioPrestamo.Buscar(id));
-                }
-                else
-                {
-                    ScriptManager.RegisterStartupScript(Page, typeof(Page), "Popup", "alert('No existe')", true);
-                }
-            }
-            else
-                ScriptManager.RegisterStartupScript(Page, typeof(Page), "Popup", "alert('Seleccione un ID')", true);
-        }
-
-        protected void CalcularButton_Click(object sender, EventArgs e)
-        {
-            int acu = 1;
-            double Capital = double.Parse(capitalTextbox.Text);
-            double Interes = double.Parse(interesTextbox.Text) / 1200;
-            double Tiempo = double.Parse(tiempoTextbox.Text);
-
-            double Cuota = Capital * (Interes / (double)(1 - Math.Pow(1 + (double)Interes, -Tiempo)));
-            double InteresMensual = 0, AmTotal = 0, Am = 0;
-            Expression<Func<Prestamo, bool>> filtro = x => true;
-
-            for (int i = 0; i < Tiempo; ++i)
-            {
-                CuotaMensual Detalle1 = new CuotaMensual();
-                InteresMensual = Math.Round((Interes * Capital), 2);
-                Capital = Math.Round(Capital - Cuota + InteresMensual, 2);
-
-                AmTotal += Math.Round(Cuota - InteresMensual, 2);
-                Am = Cuota - InteresMensual;
-                Detalle1.PrestamoId = repositorioPrestamo.GetList(filtro).Count + 1;
-                Detalle1.Valor = Math.Round((decimal)Cuota, 2);
-                Detalle1.Capital = Math.Round((decimal)Am, 2);
-                Detalle1.Interes = Math.Round((decimal)InteresMensual, 2);
-                if (i == Tiempo - 1)
-                {
-                    decimal Aux = Math.Round((decimal)Capital, MidpointRounding.AwayFromZero);
-                    if (Aux == 0)
-                        Detalle1.Balance = (decimal)0.00;
-                }
-                else
-                    Detalle1.Balance = Math.Round((decimal)Capital, 2);
-                Detalle.Add(Detalle1);
-                //repositorioPrestamo.Guardar(prestamo);
-                ++acu;
-            }
-            DatosGridView.DataSource = Detalle;
-            DatosGridView.DataBind();
+            return HayErrores;
         }
     }
 }
