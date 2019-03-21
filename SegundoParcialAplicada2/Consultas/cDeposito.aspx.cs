@@ -26,7 +26,7 @@ namespace SegundoParcialAplicada2.Consultas
             else
             {
                 Expression<Func<Deposito, bool>> filtro = x => true;
-                BLL.RepositorioBase<Deposito> repositorio = new BLL.RepositorioBase<Deposito>();
+                BLL.Repositorio<Deposito> repositorio = new BLL.Repositorio<Deposito>();
 
                 int id;
                 switch (BuscarPorDropDownList.SelectedIndex)

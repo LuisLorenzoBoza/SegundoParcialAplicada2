@@ -12,9 +12,9 @@ namespace SegundoParcialAplicada2.Registros
 {
     public partial class rPrestamos : System.Web.UI.Page
     {
-        RepositorioBase<CuentaBancaria> repositorioBase = new RepositorioBase<CuentaBancaria>();
+        Repositorio<CuentaBancaria> repositorioBase = new Repositorio<CuentaBancaria>();
         RepositorioPrestamo repositorioPrestamo = new RepositorioPrestamo();
-        List<CuotaDetalle> Detalle = new List<CuotaDetalle>();
+        List<CuotaMensual> Detalle = new List<CuotaMensual>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -135,7 +135,7 @@ namespace SegundoParcialAplicada2.Registros
 
             for (int i = 0; i < Tiempo; ++i)
             {
-                CuotaDetalle Detalle1 = new CuotaDetalle();
+                CuotaMensual Detalle1 = new CuotaMensual();
                 InteresMensual = Math.Round((Interes * Capital), 2);
                 Capital = Math.Round(Capital - Cuota + InteresMensual, 2);
 

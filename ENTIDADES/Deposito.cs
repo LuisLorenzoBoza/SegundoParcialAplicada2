@@ -7,33 +7,33 @@ using System.Threading.Tasks;
 
 namespace ENTIDADES
 {
+    [Serializable]
     public class Deposito
     {
         [Key]
         public int DepositoId { get; set; }
-        public int CuentaId { get; set; }
         public DateTime Fecha { get; set; }
+        public int CuentaId { get; set; }
 
         [StringLength(100)]
         public string Concepto { get; set; }
+        public int Monto { get; set; }
 
-        public decimal Monto { get; set; }
-        public virtual CuentaBancaria Cuenta { get; set; }
 
         public Deposito()
         {
             DepositoId = 0;
-            CuentaId = 0;
             Fecha = DateTime.Now;
+            CuentaId = 0;
             Concepto = string.Empty;
             Monto = 0;
         }
 
-        public Deposito(int id, int cuentaId, DateTime fecha, string concepto, decimal monto)
+        public Deposito(int depositoId, DateTime fecha, int cuentaId, string concepto, int monto)
         {
-            DepositoId = id;
-            CuentaId = cuentaId;
+            DepositoId = depositoId;
             Fecha = fecha;
+            CuentaId = cuentaId;
             Concepto = concepto;
             Monto = monto;
         }

@@ -14,7 +14,8 @@ namespace ENTIDADES
         public int CuentaBancariaId { get; set; }
         public DateTime Fecha { get; set; }
         public string Nombre { get; set; }
-        public decimal Balance { get; set; }
+        public int Balance { get; set; }
+
 
         public CuentaBancaria()
         {
@@ -24,12 +25,13 @@ namespace ENTIDADES
             Balance = 0;
         }
 
-        public void AgregarDetalle(int cuentaBancariaId, DateTime fecha, string nombre, decimal balance)
+        public void AgregarDetalle(int cuentaBancariaId, DateTime fecha, string nombre, int balance)
         {
             CuentaBancariaId = cuentaBancariaId;
             Fecha = fecha;
             Nombre = nombre;
             Balance = balance;
         }
+
     }
 }

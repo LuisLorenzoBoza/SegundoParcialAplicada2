@@ -4,108 +4,123 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-
 namespace BLL
 {
-    public class RepositorioPrestamo : RepositorioBase<Prestamo>
+    public class RepositorioPrestamo : Repositorio<Prestamo>
     {
 
 
-        public override Prestamo Buscar(int id)
+        public override bool Guardar(Prestamo prestamo)
         {
             Contexto contexto = new Contexto();
-            Prestamo prestamo = contexto.Prestamos.Include(x => x.Detalle).Where(z => z.PrestamoId == id).FirstOrDefault();
+            bool paso = false;
 
-            return prestamo;
-        }
+            try
+            {
+                contexto.Prestamo.Add(prestamo);
+                contexto.CuentaBancaria.Find(prestamo.CuentaId).Balance += prestamo.Total;
+                contexto.SaveChanges();
+                paso = true;
 
-        public override bool Guardar(Prestamo entity)
-        {
-            Contexto contexto = new Contexto();
-            var cuenta = contexto.Cuentas.Find(entity.CuentaBancariaId);
-            cuenta.Balance += entity.Capital;
-            contexto.Entry(cuenta).State = EntityState.Modified;
-            contexto.SaveChanges();
-
-            return base.Guardar(entity);
-        }
-
-        public override bool Modificar(Prestamo entity)
-        {
-            Contexto contexto = new Contexto();
-            var prestamoAnterior = contexto.Prestamos.Include(x => x.Detalle).Where(z => z.PrestamoId == entity.PrestamoId).AsNoTracking().FirstOrDefault();
-
-            var prestamo = prestamoAnterior;
-            var cuenta = contexto.Cuentas.Find(entity.CuentaBancariaId);
-            cuenta.Balance -= prestamoAnterior.Capital;
-            contexto.Entry(cuenta).State = EntityState.Modified;
-
-            foreach (var item in prestamoAnterior.Detalle)
-                contexto.Entry(item).State = EntityState.Deleted;
-
-            foreach (var item in entity.Detalle)
-                contexto.Entry(item).State = (item.Id == 0) ? EntityState.Added : EntityState.Modified;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
 
 
-            cuenta.Balance += entity.Capital;
-            contexto.Entry(cuenta).State = EntityState.Modified;
-
-            return base.Modificar(entity);
-        }
-
-        public static object NPrestamos(Expression<Func<CuentaBancaria, bool>> filtro)
-        {
-            throw new NotImplementedException();
+            return paso;
         }
 
         public override bool Eliminar(int id)
         {
+            bool paso = false;
             Contexto contexto = new Contexto();
-            Prestamo prestamo = contexto.Prestamos.Find(id);
-            contexto.Cuentas.Find(prestamo.CuentaBancariaId).Balance -= prestamo.Total;
-            contexto.Prestamos.Remove(prestamo);
+            try
+            {
+                Prestamo prestamo = contexto.Prestamo.Find(id);
+                contexto.CuentaBancaria.Find(prestamo.CuentaId).Balance -= prestamo.Total;
+                contexto.Prestamo.Remove(prestamo);
+                contexto.SaveChanges();
+                paso = true;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
 
-            return base.Eliminar(id);
+            return paso;
         }
 
-
-        public static int ToInt(string valor)
+        public static void CambiarBalances(Prestamo prestamo, Prestamo prestamoAnt)
         {
-            int retorno = 0;
-            int.TryParse(valor, out retorno);
+            Repositorio<CuentaBancaria> repositorio = new Repositorio<CuentaBancaria>();
+            Repositorio<CuentaBancaria> repository = new Repositorio<CuentaBancaria>();
+            Contexto contexto = new Contexto();
+            var Cuenta = contexto.CuentaBancaria.Find(prestamo.CuentaId);
+            var CuentaAnt = contexto.CuentaBancaria.Find(prestamoAnt.CuentaId);
 
-            return retorno;
+            Cuenta.Balance += prestamo.Total;
+            CuentaAnt.Balance -= prestamoAnt.Total;
+            repositorio.Modificar(Cuenta);
+            repository.Modificar(CuentaAnt);
         }
 
-
-
-        public static List<CuentaBancaria> NCuentas(Expression<Func<CuentaBancaria, bool>> filtro)
+        public override bool Modificar(Prestamo prestamo)
         {
-            filtro = p => true;
-            RepositorioBase<CuentaBancaria> repositorio = new RepositorioBase<CuentaBancaria>();
-            List<CuentaBancaria> list = new List<CuentaBancaria>();
+            bool paso = false;
+            Contexto contexto = new Contexto();
+            try
+            {
+                Prestamo PreAnt = contexto.Prestamo.Find(prestamo.PrestamoId);
 
-            list = repositorio.GetList(filtro);
+                var cuenta = contexto.CuentaBancaria.Find(prestamo.CuentaId);
 
-            return list;
+                if (prestamo.CuentaId != PreAnt.CuentaId)
+                {
+                    CambiarBalances(prestamo, PreAnt);
+                }
+                else
+                {
+                    int diferencia = prestamo.Total - PreAnt.Total;
+                    cuenta.Balance += diferencia;
+                }
+                contexto = new Contexto();
+                contexto.Entry(prestamo).State = EntityState.Modified;
+
+                contexto.SaveChanges();
+                paso = true;
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+            return paso;
         }
 
-
-
-        public static List<Prestamo> NPrestamos(Expression<Func<Prestamo, bool>> filtro)
+        public override Prestamo Buscar(int id)
         {
-            filtro = p => true;
-            RepositorioBase<Prestamo> repositorio = new RepositorioBase<Prestamo>();
-            List<Prestamo> list = new List<Prestamo>();
+            Prestamo prestamo = new Prestamo();
+            try
+            {
+                prestamo = _contexto.Prestamo.Find(id);
+                prestamo.Detalle.Count();
 
-            list = repositorio.GetList(filtro);
+                foreach (var item in prestamo.Detalle)
+                {
+                    string s = item.CuentaBancaria.Nombre;
+                }
 
-            return list;
-
-
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return prestamo;
         }
     }
 }

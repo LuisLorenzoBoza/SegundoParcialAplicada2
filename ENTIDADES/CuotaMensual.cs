@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace ENTIDADES
 {
     [Serializable]
-    public class CuotaDetalle
+    public class CuotaMensual
     {
         [Key]
         public int Id { get; set; }
@@ -17,16 +17,14 @@ namespace ENTIDADES
         public int PrestamoId { get; set; }
         public int NumeroCuota { get; set; }
         public int CuentaId { get; set; }
-        public decimal Interes { get; set; }
-        public decimal Capital { get; set; }
-        public decimal Valor { get; set; }
-        public decimal Balance { get; set; }
+        public double Interes { get; set; }
+        public double CapitalMensual { get; set; }
+        public double Balance { get; set; }
 
         [ForeignKey("CuentaId")]
         public virtual CuentaBancaria CuentaBancaria { get; set; }
 
-
-        public CuotaDetalle()
+        public CuotaMensual()
         {
             Id = 0;
             Fecha = DateTime.Now;
@@ -34,12 +32,11 @@ namespace ENTIDADES
             NumeroCuota = 0;
             CuentaId = 0;
             Interes = 0;
-            Capital = 0;
-            Valor = 0;
+            CapitalMensual = 0;
             Balance = 0;
         }
 
-        public CuotaDetalle(int id, DateTime fecha, int prestamoId, int numeroCuota, int cuentaId, decimal interes, decimal capitalMensual, decimal valor, decimal balance)
+        public CuotaMensual(int id, DateTime fecha, int prestamoId, int numeroCuota, int cuentaId, double interes, double capitalMensual, double balance)
         {
             Id = id;
             Fecha = fecha;
@@ -47,8 +44,7 @@ namespace ENTIDADES
             NumeroCuota = numeroCuota;
             CuentaId = cuentaId;
             Interes = interes;
-            Capital = capitalMensual;
-            Valor = valor;
+            CapitalMensual = capitalMensual;
             Balance = balance;
         }
     }

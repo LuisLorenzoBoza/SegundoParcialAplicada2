@@ -13,34 +13,24 @@ namespace ENTIDADES
         [Key]
         public int PrestamoId { get; set; }
         public DateTime Fecha { get; set; }
-        public int CuentaBancariaId { get; set; }
-        public decimal Capital { get; set; }
-        public decimal Interes { get; set; }
-        public int Tiempo { get; set; }
+        public int CuentaId { get; set; }
+        public int Capital { get; set; }
+        public double PctInteres { get; set; }
+        public int TiempoMeses { get; set; }
         public int Total { get; set; }
-        
-        public virtual List<CuotaDetalle> Detalle { get; set; }
+
+        public virtual List<CuotaMensual> Detalle { get; set; }
 
 
         public Prestamo()
         {
-            PrestamoId = 0;
-            Fecha = DateTime.Now;
-            CuentaBancariaId = 0;
-            Capital = 0;
-            Interes = 0;
-            Tiempo = 0;
-            Detalle = new List<CuotaDetalle>();
+            this.Detalle = new List<CuotaMensual>();
         }
 
-        public Prestamo(int prestamoId, DateTime fecha, int cuentaId, decimal capital, decimal interes, int tiempo)
+        public void AgregarDetalle(int Id, DateTime Fecha, int PrestamoId, int NumeroCuota, int CuentaId, double Interes, double Capital, double Balance)
         {
-            PrestamoId = prestamoId;
-            Fecha = fecha;
-            CuentaBancariaId = cuentaId;
-            Capital = capital;
-            Interes = interes;
-            Tiempo = tiempo;
+            this.Detalle.Add(new CuotaMensual(Id, Fecha, PrestamoId, NumeroCuota, CuentaId, Interes, Capital, Balance));
         }
+
     }
 }

@@ -53,7 +53,7 @@ namespace SegundoParcialAplicada2.Registros
             int id = Convert.ToInt32(cuentaIdTextbox.Text);
             if (!(String.IsNullOrEmpty(nombreTextbox.Text) || String.IsNullOrEmpty(fechaTextbox.Text)))
             {
-                RepositorioBase<CuentaBancaria> repositorio = new RepositorioBase<CuentaBancaria>();
+                Repositorio<CuentaBancaria> repositorio = new Repositorio<CuentaBancaria>();
                 if (id == 0)
                 {
                     repositorio.Guardar(LlenaClase());
@@ -91,7 +91,7 @@ namespace SegundoParcialAplicada2.Registros
             int id = Convert.ToInt32(cuentaIdTextbox.Text);
             if (id != 0)
             {
-                RepositorioBase<CuentaBancaria> repositorio = new RepositorioBase<CuentaBancaria>();
+                Repositorio<CuentaBancaria> repositorio = new Repositorio<CuentaBancaria>();
                 if (repositorio.Buscar(id) != null)
                 {
                     if (repositorio.Eliminar(id))
@@ -122,7 +122,7 @@ namespace SegundoParcialAplicada2.Registros
                 int id = Convert.ToInt32(cuentaIdTextbox.Text);
                 if (id != 0)
                 {
-                    RepositorioBase<CuentaBancaria> repositorio = new RepositorioBase<CuentaBancaria>();
+                    Repositorio<CuentaBancaria> repositorio = new Repositorio<CuentaBancaria>();
                     CuentaBancaria CuentaBancaria = repositorio.Buscar(id);
 
                     if (CuentaBancaria != null)

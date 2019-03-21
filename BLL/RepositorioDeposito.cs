@@ -4,72 +4,102 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace BLL
 {
-    public class RepositorioDeposito : RepositorioBase<Deposito>
+    public class RepositorioDeposito : Repositorio<Deposito>
     {
-        public override bool Guardar(Deposito entity)
+        public override bool Guardar(Deposito deposito)
         {
             Contexto contexto = new Contexto();
-            var cuenta = contexto.Cuentas.Find(entity.CuentaId);
-            cuenta.Balance += entity.Monto;
-            contexto.Entry(cuenta).State = EntityState.Modified;
-            contexto.SaveChanges();
+            bool paso = false;
 
-            return base.Guardar(entity);
+            try
+            {
+                contexto.Deposito.Add(deposito);
+                contexto.CuentaBancaria.Find(deposito.CuentaId).Balance += deposito.Monto;
+                contexto.SaveChanges();
+                paso = true;
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+
+            return paso;
         }
-
-        public override bool Modificar(Deposito entity)
-        {
-            Contexto contexto = new Contexto();
-            var depositoAnterior = contexto.Depositos.Include(x => x.Cuenta).Where(z => z.DepositoId == entity.DepositoId).AsNoTracking().FirstOrDefault();
-
-            CuentaBancaria cuenta = depositoAnterior.Cuenta;
-            cuenta.Balance -= depositoAnterior.Monto;
-            cuenta.Balance += entity.Monto;
-            contexto.Entry(cuenta).State = EntityState.Modified;
-            contexto.SaveChanges();
-
-            return base.Modificar(entity);
-        }
-
-        
 
         public override bool Eliminar(int id)
         {
+            bool paso = false;
             Contexto contexto = new Contexto();
-            var deposito = Buscar(id);
-            CuentaBancaria cuenta = deposito.Cuenta;
+            try
+            {
+                Deposito deposito = contexto.Deposito.Find(id);
+                contexto.CuentaBancaria.Find(deposito.CuentaId).Balance -= deposito.Monto;
+                contexto.Deposito.Remove(deposito);
+                contexto.SaveChanges();
+                paso = true;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
 
-            cuenta.Balance -= deposito.Monto;
-            contexto.Entry(cuenta).State = EntityState.Modified;
-            contexto.SaveChanges();
-
-            return base.Eliminar(id);
+            return paso;
         }
 
-
-        public static int ToInt(string valor)
+        public static void CambiarBalances(Deposito deposito, Deposito depositoAnt)
         {
-            int retorno = 0;
-            int.TryParse(valor, out retorno);
+            Repositorio<CuentaBancaria> repositorio = new Repositorio<CuentaBancaria>();
+            Repositorio<CuentaBancaria> repository = new Repositorio<CuentaBancaria>();
+            Contexto contexto = new Contexto();
+            var Cuenta = contexto.CuentaBancaria.Find(deposito.CuentaId);
+            var CuentaAnt = contexto.CuentaBancaria.Find(depositoAnt.CuentaId);
 
-            return retorno;
+            Cuenta.Balance += deposito.Monto;
+            CuentaAnt.Balance -= depositoAnt.Monto;
+            repositorio.Modificar(Cuenta);
+            repository.Modificar(CuentaAnt);
         }
 
-        public static List<Deposito> NDepositos(Expression<Func<Deposito, bool>> filtro)
+        public override bool Modificar(Deposito deposito)
         {
-            filtro = p => true;
-            RepositorioBase<Deposito> repositorio = new RepositorioBase<Deposito>();
-            List<Deposito> list = new List<Deposito>();
+            bool paso = false;
+            Contexto contexto = new Contexto();
+            try
+            {
+                Deposito DepAnt = contexto.Deposito.Find(deposito.DepositoId);
 
-            list = repositorio.GetList(filtro);
+                var cuenta = contexto.CuentaBancaria.Find(deposito.CuentaId);
 
-            return list;
+                if (deposito.CuentaId != DepAnt.CuentaId)
+                {
+                    CambiarBalances(deposito, DepAnt);
+                }
+                else
+                {
+                    int diferencia = deposito.Monto - DepAnt.Monto;
+                    cuenta.Balance += diferencia;
+                }
+                contexto = new Contexto();
+                contexto.Entry(deposito).State = EntityState.Modified;
+
+                contexto.SaveChanges();
+                paso = true;
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+            return paso;
         }
+
     }
 }

@@ -32,7 +32,7 @@
         <div class="collapse navbar-collapse" id="navbar">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a href="Default.aspx" class="nav-link">Inicio</a>
+                    <a href="/Default.aspx" class="nav-link">Inicio</a>
                 </li>
 
                 <li class="nav-item dropdown">

@@ -30,7 +30,7 @@ namespace SegundoParcialAplicada2.Consultas
             else
             {
                 Expression<Func<CuentaBancaria, bool>> filtro = x => true;
-                BLL.RepositorioBase<CuentaBancaria> repositorio = new BLL.RepositorioBase<CuentaBancaria>();
+                BLL.Repositorio<CuentaBancaria> repositorio = new BLL.Repositorio<CuentaBancaria>();
 
                 int id;
                 switch (BuscarPorDropDownList.SelectedIndex)
