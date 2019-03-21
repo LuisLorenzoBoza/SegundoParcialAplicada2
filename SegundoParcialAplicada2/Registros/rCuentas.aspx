@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="form-group col-lg-3 col-sm-12">
                     <asp:Label runat="server">Cuenta ID</asp:Label>
-                    <asp:TextBox runat="server" CssClass="form-control" ID="cuentaIdTextbox" TextMode="Number" Text="0" min="0"></asp:TextBox>
+                    <asp:TextBox class="form-control" ID="cuentaBancariaIdTextBox" type="number" Text="0" runat="server"></asp:TextBox>
                 </div>
                 <div class="form-group col-lg-3 col-md-12">
                     <br />
@@ -35,7 +35,7 @@
 
             <div class="row">
                 <div class="form-group col-lg-4 col-sm-12">
-                    <asp:Label runat="server">Balance</asp:Label>
+                    <asp:Label runat="server">Balance Pendiente</asp:Label>
                     <asp:TextBox runat="server" CssClass="form-control" ID="balanceTextbox" Text="0" min="0" ReadOnly="true"></asp:TextBox>
                 </div>
             </div>

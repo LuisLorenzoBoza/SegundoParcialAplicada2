@@ -1,5 +1,6 @@
 ﻿using BLL;
 using ENTIDADES;
+using SegundoParcialAplicada2.Utilitarios;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,34 +14,30 @@ namespace SegundoParcialAplicada2.Registros
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            fechaTextbox.Text = DateTime.Now.ToString("yyyy-MM-dd");
+            balanceTextbox.Text = "0";
         }
 
 
         void Limpiar()
         {
-            cuentaIdTextbox.Text = "0";
-            fechaTextbox.Text = string.Empty;
-            nombreTextbox.Text = string.Empty;
+            cuentaBancariaIdTextBox.Text = "0";
+            fechaTextbox.Text = DateTime.Now.ToString("yyyy-MM-dd");
+            nombreTextbox.Text = " ";
             balanceTextbox.Text = "0";
-        }
-
-        private void LlenaCampos(CuentaBancaria cuenta)
-        {
-            cuentaIdTextbox.Text = cuenta.CuentaBancariaId.ToString();
-            fechaTextbox.Text = cuenta.Fecha.ToString("yyyy-MM-dd");
-            nombreTextbox.Text = cuenta.Nombre;
-            balanceTextbox.Text = cuenta.Balance.ToString();
         }
 
         private CuentaBancaria LlenaClase()
         {
-            var cuenta = new CuentaBancaria();
-            cuenta.Fecha = Convert.ToDateTime(fechaTextbox.Text);
+            CuentaBancaria cuenta = new CuentaBancaria();
+
+            cuenta.CuentaBancariaId = Utils.ToInt(cuentaBancariaIdTextBox.Text);
+            cuenta.Fecha = Convert.ToDateTime(fechaTextbox.Text).Date;
             cuenta.Nombre = nombreTextbox.Text;
-            cuenta.Balance = 0;
+            cuenta.Balance = Utils.ToInt(balanceTextbox.Text);
 
             return cuenta;
+
         }
 
         protected void NuevoButton_Click(object sender, EventArgs e)
@@ -50,94 +47,77 @@ namespace SegundoParcialAplicada2.Registros
 
         protected void GuardarButton_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(cuentaIdTextbox.Text);
-            if (!(String.IsNullOrEmpty(nombreTextbox.Text) || String.IsNullOrEmpty(fechaTextbox.Text)))
+            BLL.Repositorio<CuentaBancaria> repositorio = new BLL.Repositorio<CuentaBancaria>();
+            CuentaBancaria cuenta = new CuentaBancaria();
+            bool paso = false;
+
+            //todo: validaciones adicionales
+            cuenta = LlenaClase();
+
+            if (cuenta.CuentaBancariaId == 0)
             {
-                Repositorio<CuentaBancaria> repositorio = new Repositorio<CuentaBancaria>();
-                if (id == 0)
+                paso = repositorio.Guardar(cuenta);
+                Utils.ShowToastr(this, "Guardado", "Exito", "success");
+                Limpiar();
+            }
+            else
+            {
+                int id = Utils.ToInt(cuentaBancariaIdTextBox.Text);
+                BLL.Repositorio<CuentaBancaria> repository = new BLL.Repositorio<CuentaBancaria>();
+                cuenta = repository.Buscar(id);
+
+                if (cuenta != null)
                 {
-                    repositorio.Guardar(LlenaClase());
-                    ScriptManager.RegisterStartupScript(Page, typeof(Page), "Popup", "alert('Guardado con Exito')", true);
+                    paso = repositorio.Modificar(LlenaClase());
+                    Utils.ShowToastr(this, "Modificado", "Exito", "success");
                 }
                 else
-                {
-                    if (repositorio.Buscar(id) != null)
-                    {
-                        CuentaBancaria cuenta = repositorio.Buscar(int.Parse(cuentaIdTextbox.Text));
-
-                        cuenta.CuentaBancariaId = int.Parse(cuentaIdTextbox.Text);
-                        cuenta.Fecha = DateTime.Parse(fechaTextbox.Text);
-                        cuenta.Nombre = nombreTextbox.Text;
-                        cuenta.Balance = Decimal.Parse(balanceTextbox.Text);
-
-                        repositorio.Modificar(cuenta);
-                        ScriptManager.RegisterStartupScript(Page, typeof(Page), "Popup", "alert('Modificado con Exito')", true);
-                    }
-                    else
-                    {
-                        ScriptManager.RegisterStartupScript(Page, typeof(Page), "Popup", "alert('No existe una categoria con ese ID, no puede modificarse')", true);
-                    }
-                }
+                    Utils.ShowToastr(this, "Id no existe", "Error", "error");
             }
-            else if (id == 0)
+
+            if (paso)
             {
-                ScriptManager.RegisterStartupScript(Page, typeof(Page), "Popup", "alert('Rellene todos los campos')", true);
+                Limpiar();
             }
-            Limpiar();
+            else
+                Utils.ShowToastr(this, "No se pudo guardar", "Error", "error");
         }
 
         protected void EliminarButton_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(cuentaIdTextbox.Text);
-            if (id != 0)
+            BLL.Repositorio<CuentaBancaria> repositorio = new BLL.Repositorio<CuentaBancaria>();
+            int id = Utils.ToInt(cuentaBancariaIdTextBox.Text);
+
+            var cuenta = repositorio.Buscar(id);
+
+            if (cuenta != null)
             {
-                Repositorio<CuentaBancaria> repositorio = new Repositorio<CuentaBancaria>();
-                if (repositorio.Buscar(id) != null)
+                if (repositorio.Eliminar(id))
                 {
-                    if (repositorio.Eliminar(id))
-                    {
-                        ScriptManager.RegisterStartupScript(Page, typeof(Page), "Popup", "alert('Eliminado con Exito')", true);
-                    }
-                    else
-                    {
-                        ScriptManager.RegisterStartupScript(Page, typeof(Page), "Popup", "alert('No se pudo eliminar')", true);
-                    }
+                    Utils.ShowToastr(this, "Eliminado", "Exito", "success");
                     Limpiar();
                 }
                 else
-                {
-                    ScriptManager.RegisterStartupScript(Page, typeof(Page), "Popup", "alert('No existe')", true);
-                }
+                    Utils.ShowToastr(this, "No se pudo eliminar", "Error", "error");
             }
             else
-            {
-                ScriptManager.RegisterStartupScript(Page, typeof(Page), "Popup", "alert('Seleccione un ID')", true);
-            }
+                Utils.ShowToastr(this, "No existe", "Error", "error");
         }
 
         protected void BuscarButton_Click(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(cuentaIdTextbox.Text))
+            Repositorio<CuentaBancaria> repositorio = new Repositorio<CuentaBancaria>();
+            CuentaBancaria cuenta = repositorio.Buscar(Utils.ToInt(cuentaBancariaIdTextBox.Text));
+            if (cuenta != null)
             {
-                int id = Convert.ToInt32(cuentaIdTextbox.Text);
-                if (id != 0)
-                {
-                    Repositorio<CuentaBancaria> repositorio = new Repositorio<CuentaBancaria>();
-                    CuentaBancaria CuentaBancaria = repositorio.Buscar(id);
-
-                    if (CuentaBancaria != null)
-                    {
-                        LlenaCampos(CuentaBancaria);
-                    }
-                    else
-                    {
-                        ScriptManager.RegisterStartupScript(Page, typeof(Page), "Popup", "alert('No existe')", true);
-                    }
-                }
-                else
-                {
-                    ScriptManager.RegisterStartupScript(Page, typeof(Page), "Popup", "alert('Seleccione un ID')", true);
-                }
+                fechaTextbox.Text = cuenta.Fecha.ToString();
+                nombreTextbox.Text = cuenta.Nombre;
+                balanceTextbox.Text = cuenta.Balance.ToString();
+                Utils.ShowToastr(this, "Busqueda exitosa", "Exito", "success");
+            }
+            else
+            {
+                Utils.ShowToastr(this, "No Hay Resultado", "Error", "error");
             }
         }
     }
