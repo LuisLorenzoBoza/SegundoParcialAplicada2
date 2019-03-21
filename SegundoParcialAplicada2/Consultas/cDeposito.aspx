@@ -7,16 +7,44 @@
         <hr />
         <form runat="server">
             <div class="row" >
+                <%--Filtro--%>
                 <div class="col-md-2">
+                    <asp:Label Text="Filtro" runat="server" />
                     <asp:DropDownList ID="BuscarPorDropDownList" runat="server" CssClass="form-control input-sm" >
                         <asp:ListItem>Todo</asp:ListItem>
-                        <asp:ListItem>DepositoId</asp:ListItem>
-                        <asp:ListItem>CuentaId</asp:ListItem>
+                        <asp:ListItem>Todo por Fecha</asp:ListItem>
+                        <asp:ListItem>Id del Depósito</asp:ListItem>
+                        <asp:ListItem>Id de la Cuenta</asp:ListItem>
+                        <asp:ListItem>Concepto</asp:ListItem>
                     </asp:DropDownList>
                 </div>
                 <div class="col-md-6">
                     <asp:TextBox ID="FiltroTextBox" runat="server" CssClass="form-control input-sm"></asp:TextBox>
                 </div>
+           <%--Criterio--%>
+                <div class="form-group col-md-3">
+                    <asp:Label ID="Label1" runat="server">Criterio</asp:Label>
+                    <asp:TextBox ID="CriterioTextBox" AutoCompleteType="Disabled" class="form-control input-group" runat="server"></asp:TextBox>
+                </div>
+                <div class="col-lg-1 p-0">
+                    <asp:LinkButton ID="buscarLinkButton" CssClass="btn btn-dark mt-4" runat="server" OnClick="buscarLinkButton_Click">
+                <span class="fas fa-search"></span>
+                 Buscar
+                    </asp:LinkButton>
+                </div>
+            </div>
+           <%--Rango fecha--%>
+            <div class="form-row justify-content-center">
+                <div class="form-group col-md-2">
+                    <asp:Label Text="Desde" runat="server" />
+                    <asp:TextBox ID="DesdeTextBox" class="form-control input-group" TextMode="Date" runat="server" />
+
+                </div>
+                <div class="form-group col-md-2">
+                    <asp:Label Text="Hasta" runat="server" />
+                    <asp:TextBox ID="HastaTextBox" class="form-control input-group" TextMode="Date" runat="server" />
+                </div>
+            </div>
                 <div class="col-md-4">
                     <asp:Button ID="BuscarButton" runat="server" Class="btn btn-success input-sm" Text="Buscar" OnClick="BuscarButton_Click" />
                 </div>
