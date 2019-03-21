@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public class Metodos
+    public class Funciones
     {
         public static int ToInt(string valor)
         {

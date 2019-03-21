@@ -39,7 +39,7 @@ namespace SegundoParcialAplicada2.Consultas
                         break;
                     case 2://CuentaBancariaId
                         id = Convert.ToInt32(FiltroTextBox.Text);
-                        filtro = c => c.CuentaBancariaId == id;
+                        filtro = c => c.CuentaId == id;
                         break;
                 }
                 

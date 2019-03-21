@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 namespace BLL
 {
-    public class RepositorioPrestamo : Repositorio<Prestamo>
+    public class Metodos : Repositorio<Prestamo>
     {
 
 

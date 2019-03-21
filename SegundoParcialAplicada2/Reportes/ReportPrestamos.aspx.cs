@@ -22,7 +22,7 @@ namespace SegundoParcialAplicada2.Reportes
                 PrestamosReportViewer.Reset();
                 PrestamosReportViewer.LocalReport.ReportPath = Server.MapPath(@"~\Reportes\ListadoPrestamos.rdlc");
                 PrestamosReportViewer.LocalReport.DataSources.Clear();
-                PrestamosReportViewer.LocalReport.DataSources.Add(new ReportDataSource("Prestamos", BLL.RepositorioPrestamo.NPrestamos(filtro)));
+                PrestamosReportViewer.LocalReport.DataSources.Add(new ReportDataSource("Prestamos", BLL.Metodos.FPrestamos(filtro)));
                 PrestamosReportViewer.LocalReport.Refresh();
             }
         }
