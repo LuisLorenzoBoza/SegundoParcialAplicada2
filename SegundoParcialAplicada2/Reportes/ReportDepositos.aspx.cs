@@ -22,7 +22,7 @@ namespace SegundoParcialAplicada2.Reportes
                 DepositoReportViewer.Reset();
                 DepositoReportViewer.LocalReport.ReportPath = Server.MapPath(@"~\Reportes\ListadoDepositos.rdlc");
                 DepositoReportViewer.LocalReport.DataSources.Clear();
-                DepositoReportViewer.LocalReport.DataSources.Add(new ReportDataSource("Depositos", BLL.Metodos.FDepositos(filtro)));
+                DepositoReportViewer.LocalReport.DataSources.Add(new ReportDataSource("Depositos", BLL.Funciones.FDepositos(filtro)));
                 DepositoReportViewer.LocalReport.Refresh();
             }
         }
