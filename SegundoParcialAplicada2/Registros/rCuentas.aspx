@@ -1,12 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="rCuentas.aspx.cs" Inherits="SegundoParcialAplicada2.Registros.rCuentas" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container">
         <h2 class="h2">Registro de Cuentas</h2>
         <hr />
-        <form runat="server">
 
             <div class="row">
                 <div class="form-group col-lg-3 col-sm-12">
@@ -48,7 +47,6 @@
                 </div>
             </div>
 
-        </form>
     </div>
 </asp:Content>
 

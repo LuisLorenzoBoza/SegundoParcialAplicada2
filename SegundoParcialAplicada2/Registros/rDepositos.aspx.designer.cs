@@ -175,30 +175,30 @@ namespace SegundoParcialAplicada2.Registros {
         protected global::System.Web.UI.WebControls.ValidationSummary DepositoVS;
         
         /// <summary>
-        /// nuevoButton control.
+        /// NuevoButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button nuevoButton;
+        protected global::System.Web.UI.WebControls.Button NuevoButton;
         
         /// <summary>
-        /// guadarButton control.
+        /// GuadarButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button guadarButton;
+        protected global::System.Web.UI.WebControls.Button GuadarButton;
         
         /// <summary>
-        /// eliminarButton control.
+        /// EliminarButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button eliminarButton;
+        protected global::System.Web.UI.WebControls.Button EliminarButton;
     }
 }

@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="rDepositos.aspx.cs" Inherits="SegundoParcialAplicada2.Registros.rDepositos" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <br>
@@ -9,7 +9,6 @@
             <div class="card">
                 <div class="card-header text-uppercase text-center">Depósitos</div>
                 <article class="card-body">
-                    <form>
                         <div class="col-md-6 col-md-offset-3">
                             <div class="container">
                                 <div class="form-group">
@@ -64,13 +63,13 @@
                         <div class="panel-footer">
                             <div class="text-center">
                                 <div class="form-group" style="display: inline-block; height: 33px;">
-                                    <asp:Button Text="Nuevo" class="btn btn-dark btn-sm" runat="server" ID="nuevoButton" OnClick="nuevoButton_Click" />
-                                    <asp:Button Text="Guardar" class="btn btn-success btn-sm" runat="server" ID="guadarButton" OnClick="guadarButton_Click" ValidationGroup="Guardar" />
-                                    <asp:Button Text="Eliminar" class="btn btn-danger btn-sm" runat="server" ID="eliminarButton" OnClick="eliminarButton_Click" />
+                                    <asp:Button Text="Nuevo" class="btn btn-dark btn-sm" runat="server" ID="NuevoButton" OnClick="NuevoButton_Click1"  />
+                                    <asp:Button Text="Guardar" class="btn btn-success btn-sm" runat="server" ID="GuadarButton"  ValidationGroup="Guardar" OnClick="GuadarButton_Click" />
+                                    <asp:Button Text="Eliminar" class="btn btn-danger btn-sm" runat="server" ID="EliminarButton"  />
                                 </div>
                             </div>
                         </div>
-                    </form>
+                  
                 </article>
             </div>
             <!-- card.// -->

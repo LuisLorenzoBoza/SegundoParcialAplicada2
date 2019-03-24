@@ -65,43 +65,6 @@ namespace SegundoParcialAplicada2.Registros
             Limpiar();
         }
 
-        protected void GuardarButton_Click(object sender, EventArgs e)
-        {
-            bool paso = false;
-            RepositorioDeposito repositorio = new RepositorioDeposito();
-            Deposito deposito = new Deposito();
-
-            deposito = LlenarClase();
-
-            if (deposito.DepositoId == 0)
-            {
-                paso = repositorio.Guardar(deposito);
-                Utils.ShowToastr(this, "Guardado", "Exito", "success");
-                Limpiar();
-            }
-            else
-            {
-                RepositorioDeposito repository = new RepositorioDeposito();
-                int id = Utils.ToInt(depositoIdTextBox.Text);
-                deposito = repository.Buscar(id);
-
-                if (deposito != null)
-                {
-                    paso = repository.Modificar(LlenarClase());
-                    Utils.ShowToastr(this, "Modificado", "Exito", "success");
-                }
-                else
-                    Utils.ShowToastr(this, "Id no existe", "Error", "error");
-            }
-
-            if (paso)
-            {
-                Limpiar();
-            }
-            else
-                Utils.ShowToastr(this, "No se pudo guardar", "Error", "error");
-        }
-
         protected void EliminarButton_Click(object sender, EventArgs e)
         {
             RepositorioDeposito repositorio = new RepositorioDeposito();
@@ -138,6 +101,48 @@ namespace SegundoParcialAplicada2.Registros
                 Limpiar();
                 Utils.ShowToastr(this, "No Hay Resultado", "Error", "error");
             }
+        }
+
+        protected void NuevoButton_Click1(object sender, EventArgs e)
+        {
+            Limpiar();
+        }
+
+        protected void GuadarButton_Click(object sender, EventArgs e)
+        {
+            bool paso = false;
+            RepositorioDeposito repositorio = new RepositorioDeposito();
+            Deposito deposito = new Deposito();
+
+            deposito = LlenarClase();
+
+            if (deposito.DepositoId == 0)
+            {
+                paso = repositorio.Guardar(deposito);
+                Utils.ShowToastr(this, "Guardado", "Exito", "success");
+                Limpiar();
+            }
+            else
+            {
+                RepositorioDeposito repository = new RepositorioDeposito();
+                int id = Utils.ToInt(depositoIdTextBox.Text);
+                deposito = repository.Buscar(id);
+
+                if (deposito != null)
+                {
+                    paso = repository.Modificar(LlenarClase());
+                    Utils.ShowToastr(this, "Modificado", "Exito", "success");
+                }
+                else
+                    Utils.ShowToastr(this, "Id no existe", "Error", "error");
+            }
+
+            if (paso)
+            {
+                Limpiar();
+            }
+            else
+                Utils.ShowToastr(this, "No se pudo guardar", "Error", "error");
         }
     }
 }
