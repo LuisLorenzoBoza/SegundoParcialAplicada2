@@ -2,7 +2,7 @@
 
 
 
-</asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <br>
     <div class="form-row justify-content-center">
